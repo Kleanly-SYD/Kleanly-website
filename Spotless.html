@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotless Handover — Professional Cleaning Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --blue: #46718F;
+      --blue-dark: #2d5470;
+      --blue-deeper: #1a2e3b;
+      --teal: #95DCCF;
+      --teal-dark: #72c9b8;
+      --teal-light: #EDF9F6;
+      --base: #F8F8F5;
+      --white: #ffffff;
+      --text-body: #3d5a6e;
+      --text-muted: #6b7280;
+      --border: rgba(70,113,143,0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--blue-deeper);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--base); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+    /* ── HEADER ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    #header.scrolled { box-shadow: 0 2px 20px rgba(70,113,143,0.1); }
+
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img {
+      width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
+      border: 2px solid rgba(149,220,207,0.8);
+      box-shadow: 0 0 0 3px rgba(149,220,207,0.15);
+    }
+    .logo-text {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 16px; color: var(--blue-deeper); letter-spacing: -0.01em;
+    }
+    .logo-text span { color: var(--blue); }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    .nav-link {
+      position: relative; color: var(--text-body);
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      padding-bottom: 3px; transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 0; height: 2px; background: var(--teal);
+      transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .nav-link:hover { color: var(--blue-deeper); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid var(--teal); border-radius: 2px; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 11px 22px; border-radius: 4px;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(149,220,207,0.35);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px); background: var(--teal-dark);
+      box-shadow: 0 8px 24px rgba(149,220,207,0.45);
+    }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+    .btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--blue-deeper); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 10px 21px; border-radius: 4px;
+      text-decoration: none; cursor: pointer; background: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+                  transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-outline:hover {
+      background: rgba(70,113,143,0.05);
+      border-color: var(--blue); color: var(--blue);
+      transform: translateY(-1px);
+    }
+    .btn-outline:active { transform: translateY(0); }
+    .btn-outline:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-deeper); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 11px 22px; border-radius: 4px;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,46,59,0.22);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-dark:hover {
+      transform: translateY(-1px); background: var(--blue-dark);
+      box-shadow: 0 8px 24px rgba(26,46,59,0.3);
+    }
+    .btn-dark:active { transform: translateY(0) scale(0.99); }
+    .btn-dark:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .section-label-line { width: 28px; height: 2px; background: var(--teal); flex-shrink: 0; }
+    .section-label-text {
+      font-size: 11px; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    .section-h2 {
+      font-size: clamp(28px, 3.8vw, 48px); font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--text-body); line-height: 1.72;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 72px;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: var(--white);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; padding: 80px 32px;
+      display: grid; grid-template-columns: 55fr 45fr; gap: 64px; align-items: center;
+    }
+
+    .hero-h1 {
+      font-size: clamp(40px, 5.2vw, 72px); font-weight: 800;
+      color: var(--blue-deeper); line-height: 1.04;
+      letter-spacing: -0.04em; margin-bottom: 20px;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      background-image: linear-gradient(to right, var(--teal), var(--teal-dark));
+      background-size: 100% 5px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      padding-bottom: 3px;
+    }
+    .hero-sub {
+      font-size: 16px; color: var(--text-body); line-height: 1.74;
+      max-width: 440px; margin-bottom: 32px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+
+    /* Trustpilot row */
+    .hero-social-proof {
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .trustpilot-widget { display: flex; flex-direction: column; gap: 4px; }
+    .tp-stars { display: flex; gap: 2px; margin-bottom: 3px; }
+    .tp-star {
+      width: 20px; height: 20px;
+      background: #00b67a;
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tp-star svg { display: block; }
+    .tp-label {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .tp-score { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-deeper); }
+    .tp-text { font-size: 12px; color: var(--text-muted); }
+    .tp-logo {
+      font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700;
+      color: #00b67a; letter-spacing: -0.01em;
+    }
+
+    .avatar-cluster { display: flex; align-items: center; gap: 10px; }
+    .avatar-stack { display: flex; }
+    .avatar-circle {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 11px;
+      margin-left: -9px; flex-shrink: 0;
+    }
+    .avatar-circle:first-child { margin-left: 0; }
+    .avatar-cluster-label { font-size: 13px; color: var(--text-body); line-height: 1.4; }
+    .avatar-cluster-label strong {
+      display: block; font-family: 'Poppins', sans-serif; font-size: 13px;
+      font-weight: 700; color: var(--blue-deeper);
+    }
+
+    /* Service area pills */
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--base); border: 1px solid var(--border);
+      border-radius: 100px; padding: 5px 12px;
+      font-size: 12px; font-weight: 600; color: var(--text-body);
+    }
+    .hero-pill svg { color: var(--blue); flex-shrink: 0; }
+
+    /* Hero image */
+    .hero-img-col { display: flex; flex-direction: column; gap: 16px; }
+    .hero-img-wrap { position: relative; border-radius: 12px; overflow: hidden; }
+    .hero-main-img { width: 100%; height: 460px; object-fit: cover; display: block; }
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.18) 0%, transparent 55%);
+    }
+    .hero-img-badge {
+      position: absolute; bottom: 16px; left: 16px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 8px; padding: 10px 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(70,113,143,0.12);
+    }
+    .hero-badge-label {
+      font-size: 10px; font-weight: 600; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;
+    }
+    .hero-badge-value {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--blue-deeper);
+    }
+
+    /* ── CLIENTS SECTION ── */
+    #clients {
+      background: var(--base);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 32px;
+    }
+    .clients-inner { max-width: 1200px; margin: 0 auto; }
+    .clients-label {
+      text-align: center;
+      font-size: 11px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 28px;
+    }
+    .clients-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .client-logo {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 15px; color: rgba(70,113,143,0.3);
+      letter-spacing: -0.02em; white-space: nowrap;
+      transition: color 0.2s ease;
+      user-select: none;
+    }
+    .client-logo:hover { color: rgba(70,113,143,0.6); }
+
+    /* ── BRAND ATTRIBUTES ── */
+    #brand-attrs {
+      padding: 40px 32px; background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-attrs-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    }
+    .brand-attr {
+      background: var(--white); padding: 28px 24px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .brand-attr-icon {
+      width: 40px; height: 40px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(149,220,207,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-attr-title {
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: 0.01em; margin-bottom: 3px;
+    }
+    .brand-attr-sub { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── WHY SECTION ── */
+    #why { padding: 96px 32px; background: var(--white); }
+    .why-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 55fr 45fr; gap: 72px; align-items: center;
+    }
+
+    .why-feature-list { display: flex; flex-direction: column; }
+    .why-feature {
+      display: flex; align-items: flex-start; gap: 18px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+    .why-feature:first-child { border-top: 1px solid var(--border); }
+    .why-feature-icon {
+      width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(149,220,207,0.15);
+      display: flex; align-items: center; justify-content: center; margin-top: 1px;
+    }
+    .why-feature-title {
+      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 5px;
+    }
+    .why-feature-desc { font-size: 14px; color: var(--text-body); line-height: 1.68; }
+
+    .why-cta-row {
+      display: flex; align-items: center; gap: 24px;
+      margin-top: 32px; flex-wrap: wrap;
+    }
+    .why-phone {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .why-phone-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--teal-light); border: 1px solid rgba(149,220,207,0.4);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .why-phone-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-bottom: 1px; }
+    .why-phone-number {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--blue-deeper);
+    }
+
+    .why-img-wrap { position: relative; border-radius: 12px; overflow: hidden; }
+    .why-img { width: 100%; height: 520px; object-fit: cover; display: block; }
+    .why-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.2) 0%, transparent 60%);
+    }
+    .why-img-accent {
+      position: absolute; top: 0; left: 0; bottom: 0; width: 4px;
+      background: linear-gradient(to bottom, var(--teal), var(--teal-dark));
+    }
+
+    /* ── STATS SECTION ── */
+    #stats { padding: 96px 32px; background: var(--base); }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 45fr 55fr; gap: 80px; align-items: center;
+    }
+    .stats-content {}
+    .stats-h2 {
+      font-size: clamp(28px, 3.8vw, 48px); font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .stats-h2 em { font-style: normal; color: var(--blue); }
+    .stats-sub {
+      font-size: 16px; color: var(--text-body); line-height: 1.74;
+      margin-bottom: 40px; max-width: 400px;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;
+    }
+    .stat-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px 20px;
+      box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.06);
+    }
+    .stat-number {
+      font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 800;
+      color: var(--blue-deeper); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .stat-number span { color: var(--blue); }
+    .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+    .stats-img-wrap { position: relative; border-radius: 12px; overflow: hidden; }
+    .stats-img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .stats-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.2) 0%, transparent 60%);
+    }
+    .stats-img-accent {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(to right, var(--teal), var(--teal-dark));
+    }
+
+    /* ── SERVICES ── */
+    #services { padding: 96px 32px; background: var(--white); }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-header { text-align: center; margin-bottom: 56px; }
+    .services-header .section-label { justify-content: center; }
+    .services-header .section-h2 { max-width: 560px; margin: 0 auto 14px; }
+    .services-header .section-sub { max-width: 560px; margin: 0 auto; }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white); border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(70,113,143,0.05), 0 8px 24px rgba(70,113,143,0.07);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      display: flex; flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 4px 12px rgba(70,113,143,0.1), 0 24px 48px rgba(70,113,143,0.14);
+    }
+    .service-card:focus-within { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+    .service-img-wrap { position: relative; overflow: hidden; flex-shrink: 0; }
+    .service-img {
+      width: 100%; height: 190px; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .service-card:hover .service-img { transform: scale(1.05); }
+    .service-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.22) 0%, transparent 55%);
+    }
+    .service-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .service-h3 {
+      font-size: 17px; font-weight: 700; color: var(--blue-deeper);
+      letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 13.5px; color: var(--text-body); line-height: 1.7; margin-bottom: 16px; flex: 1;
+    }
+    .service-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--blue); text-decoration: none;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+    .service-cta:hover { gap: 9px; color: var(--blue-dark); }
+    .service-cta:focus-visible { outline: 2px solid var(--teal); border-radius: 2px; }
+
+    /* ── BOOK SPLIT ── */
+    #book { background: var(--base); }
+    .book-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+
+    .book-left {
+      padding: 80px 48px 80px 32px;
+    }
+    .book-right {
+      padding: 80px 32px 80px 48px;
+      background: var(--blue-deeper);
+      border-radius: 0;
+    }
+
+    .book-service-list { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+    .book-service-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .book-service-item:first-child { border-top: 1px solid var(--border); }
+    .book-service-item:hover { transform: translateX(4px); }
+    .book-service-item:focus-visible { outline: 2px solid var(--teal); border-radius: 2px; }
+    .book-service-icon {
+      width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;
+      background: rgba(149,220,207,0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .book-service-name {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--blue-deeper); flex: 1;
+    }
+    .book-service-arrow { color: var(--blue); flex-shrink: 0; }
+
+    /* Right dark panel */
+    .book-right .section-label-text { color: var(--teal); }
+    .book-right .section-label-line { background: var(--teal); }
+    .book-right-h2 {
+      font-size: clamp(24px, 3vw, 38px); font-weight: 700;
+      color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px;
+    }
+    .book-right-sub {
+      font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.74; margin-bottom: 36px;
+    }
+    .book-right-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .book-right-feature { display: flex; align-items: flex-start; gap: 12px; }
+    .book-right-feature-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .book-right-feature-text {
+      font-size: 14.5px; color: rgba(255,255,255,0.8); line-height: 1.6;
+    }
+    .book-right-feature-text strong {
+      display: block; font-family: 'Poppins', sans-serif; font-size: 14px;
+      font-weight: 700; color: #fff; margin-bottom: 2px;
+    }
+
+    /* ── PROCESS ── */
+    #process { padding: 96px 32px; background: var(--white); }
+    .process-inner { max-width: 1200px; margin: 0 auto; }
+    .process-header { margin-bottom: 64px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .step-number {
+      font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800;
+      color: rgba(70,113,143,0.08); line-height: 1; margin-bottom: 16px;
+      letter-spacing: -0.04em;
+    }
+    .step-accent-line { width: 28px; height: 2px; background: var(--teal); margin-bottom: 14px; }
+    .step-title {
+      font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 8px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-body); line-height: 1.7; }
+
+    /* ── REVIEWS ── */
+    #reviews { padding: 96px 32px; background: var(--base); }
+    .reviews-inner { max-width: 1200px; margin: 0 auto; }
+    .reviews-header { margin-bottom: 56px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .review-card {
+      background: var(--white); border-radius: 10px; padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.06);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      display: flex; flex-direction: column;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(70,113,143,0.08), 0 20px 44px rgba(70,113,143,0.12);
+    }
+    .review-card.featured { border-color: rgba(149,220,207,0.5); }
+    .review-stars { display: flex; gap: 2px; margin-bottom: 14px; }
+    .review-star { color: #f59e0b; font-size: 14px; }
+    .review-text {
+      font-size: 15px; color: var(--text-body); line-height: 1.76;
+      margin-bottom: 24px; flex: 1;
+    }
+    .review-author {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 20px; border-top: 1px solid var(--border);
+    }
+    .review-avatar {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px;
+    }
+    .review-name {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--blue-deeper);
+    }
+    .review-role { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── TRUST BAR ── */
+    #trust {
+      background: var(--teal-light);
+      border-top: 1px solid rgba(149,220,207,0.35);
+      border-bottom: 1px solid rgba(149,220,207,0.35);
+      padding: 28px 32px;
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .trust-left {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .trust-logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+    .trust-headline {
+      font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.02em;
+    }
+    .trust-sub { font-size: 13px; color: var(--text-body); margin-top: 2px; }
+    .trust-ratings { display: flex; align-items: center; gap: 4px; }
+    .trust-star { color: #f59e0b; font-size: 18px; }
+    .trust-score {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--blue-deeper); margin-left: 6px;
+    }
+    .trust-count { font-size: 12px; color: var(--text-muted); margin-left: 4px; }
+
+    /* ── CTA ── */
+    #cta { padding: 96px 32px; background: var(--white); }
+    .cta-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .cta-logo { width: 96px; height: 96px; object-fit: contain; margin-bottom: 16px; border-radius: 50%; box-shadow: 0 8px 28px rgba(149,220,207,0.4), 0 0 0 4px rgba(149,220,207,0.18); }
+    .cta-brand-tag {
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+      color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 24px; display: block;
+    }
+    .cta-h2 {
+      font-size: clamp(30px, 4vw, 52px); font-weight: 800;
+      color: var(--blue-deeper); letter-spacing: -0.03em;
+      line-height: 1.12; margin-bottom: 14px;
+    }
+    .cta-sub {
+      font-size: 17px; color: var(--text-body); line-height: 1.7;
+      max-width: 460px; margin: 0 auto 36px;
+    }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── CONTACT ── */
+    #contact { padding: 96px 32px; background: var(--base); }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .contact-info .section-h2 { margin-bottom: 14px; }
+    .contact-info .section-sub { margin-bottom: 40px; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail { display: flex; align-items: center; gap: 16px; }
+    .contact-detail-icon {
+      width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(149,220,207,0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-detail-label {
+      font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700;
+      color: var(--blue); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 3px;
+    }
+    .contact-detail-value { font-size: 15px; color: var(--blue-deeper); font-weight: 500; }
+
+    .contact-form {
+      background: var(--white); border-radius: 12px; padding: 36px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(70,113,143,0.06), 0 16px 40px rgba(70,113,143,0.08);
+    }
+    .form-title {
+      font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 24px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-label {
+      display: block; font-family: 'Poppins', sans-serif;
+      font-size: 11.5px; font-weight: 700; color: var(--blue-deeper);
+      letter-spacing: 0.04em; margin-bottom: 7px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid rgba(70,113,143,0.18); border-radius: 6px;
+      font-size: 14.5px; font-family: 'Inter', sans-serif;
+      color: var(--blue-deeper); background: var(--white);
+      outline: none; appearance: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: #9ca3af; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(70,113,143,0.1);
+    }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%; padding: 13px; margin-top: 6px;
+      background: var(--blue-deeper); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      border: none; border-radius: 4px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,46,59,0.2);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .form-submit:hover {
+      transform: translateY(-1px); background: var(--blue-dark);
+      box-shadow: 0 8px 24px rgba(26,46,59,0.28);
+    }
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--blue-deeper); padding: 64px 32px 32px; color: rgba(255,255,255,0.7); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+    .footer-logo-img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(149,220,207,0.45); }
+    .footer-brand-tag { font-size: 10px; color: rgba(255,255,255,0.28); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; display: block; }
+    .footer-logo-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: #fff; letter-spacing: -0.01em; }
+    .footer-logo-text span { color: var(--teal); }
+    .footer-desc { font-size: 14px; line-height: 1.72; color: rgba(255,255,255,0.48); max-width: 260px; margin-bottom: 22px; }
+    .footer-socials { display: flex; gap: 8px; }
+    .footer-social {
+      width: 34px; height: 34px; border-radius: 6px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-social:hover { background: rgba(149,220,207,0.18); color: var(--teal); transform: translateY(-2px); }
+    .footer-col-title {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11px;
+      color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact-item { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s ease; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    section { scroll-margin-top: 72px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .brand-attrs-inner { grid-template-columns: 1fr 1fr; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-main-img { height: 320px; }
+      .why-inner { grid-template-columns: 1fr; }
+      .why-img { height: 300px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stats-img { height: 300px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .book-inner { grid-template-columns: 1fr; }
+      .book-right { border-radius: 0; padding: 64px 32px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .reviews-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+    }
+    @media (max-width: 640px) {
+      .hero-inner { padding: 60px 20px; }
+      .brand-attrs-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #services, #why, #stats, #process, #reviews, #cta, #contact, #book, #trust, #clients, #brand-attrs {
+        padding-left: 20px; padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo-wrap">
+      <img class="logo-img" src="brand_assets/Gemini_Generated_Image_975w93975w93975w.png" alt="Spotless Handover logo">
+      <span class="logo-text">Spotless<span> Handover</span></span>
+    </a>
+    <nav>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#why">Why Us</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="btn-primary" href="#contact">Book Appointment</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Professional Cleaning Services</span>
+      </div>
+      <h1 class="hero-h1">
+        Sparkling Spaces,<br>
+        <em>Exceptional</em><br>
+        Results.
+      </h1>
+      <p class="hero-sub">
+        Transform your space with our reliable, precision cleaning services. From post-construction to end-of-tenancy, we deliver a spotless environment every time.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#contact" style="font-size: 15px; padding: 13px 28px;">Book Appointment</a>
+        <a class="btn-outline" href="#services" style="font-size: 15px; padding: 12px 27px;">Our Services</a>
+      </div>
+
+      <!-- Trustpilot -->
+      <div class="hero-social-proof">
+        <div class="trustpilot-widget">
+          <div class="tp-stars">
+            <div class="tp-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          </div>
+          <div class="tp-label">
+            <span class="tp-score">4.9</span>
+            <span class="tp-text">Excellent ·</span>
+            <span class="tp-logo">★ Trustpilot</span>
+          </div>
+        </div>
+
+        <div style="width:1px;height:36px;background:var(--border);"></div>
+
+        <div class="avatar-cluster">
+          <div class="avatar-stack">
+            <div class="avatar-circle" style="background:linear-gradient(135deg,#46718F,#2d5470);color:#fff;">JM</div>
+            <div class="avatar-circle" style="background:rgba(149,220,207,0.6);color:#1a2e3b;">SL</div>
+            <div class="avatar-circle" style="background:linear-gradient(135deg,#2d5470,#1a2e3b);color:#fff;">RT</div>
+            <div class="avatar-circle" style="background:rgba(70,113,143,0.3);color:#1a2e3b;">AT</div>
+            <div class="avatar-circle" style="background:linear-gradient(135deg,#95DCCF,#72c9b8);color:#1a2e3b;">PK</div>
+          </div>
+          <div class="avatar-cluster-label">
+            <strong>200+ Clients</strong>
+            All left 5-star reviews
+          </div>
+        </div>
+      </div>
+
+      <!-- Service area pills -->
+      <div class="hero-pills">
+        <span class="hero-pill">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          London
+        </span>
+        <span class="hero-pill">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Surrey
+        </span>
+        <span class="hero-pill">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Kent
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero image column -->
+    <div class="hero-img-col">
+      <div class="hero-img-wrap">
+        <img class="hero-main-img" src="https://placehold.co/640x460/D8E5ED/46718F?text=Spotless+Clean" alt="Professionally cleaned interior">
+        <div class="hero-img-overlay"></div>
+        <div class="hero-img-badge">
+          <div class="hero-badge-label">Post-Construction · End of Tenancy · Commercial</div>
+          <div class="hero-badge-value">Spotless Handover</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS STRIP -->
+<section id="clients">
+  <div class="clients-inner">
+    <p class="clients-label">Our Exceptional Clients</p>
+    <div class="clients-logos">
+      <span class="client-logo">Barratt Homes</span>
+      <span class="client-logo">Taylor Wimpey</span>
+      <span class="client-logo">Savills</span>
+      <span class="client-logo">Knight Frank</span>
+      <span class="client-logo">Foxtons</span>
+      <span class="client-logo">JLL</span>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND ATTRIBUTES -->
+<section id="brand-attrs">
+  <div class="brand-attrs-inner">
+    <div class="brand-attr">
+      <div class="brand-attr-icon">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div>
+        <div class="brand-attr-title">Professional</div>
+        <div class="brand-attr-sub">Reliable &amp; Trustworthy</div>
+      </div>
+    </div>
+    <div class="brand-attr">
+      <div class="brand-attr-icon">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div>
+        <div class="brand-attr-title">Efficient</div>
+        <div class="brand-attr-sub">Timely Completion</div>
+      </div>
+    </div>
+    <div class="brand-attr">
+      <div class="brand-attr-icon">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+      <div>
+        <div class="brand-attr-title">Detail-Oriented</div>
+        <div class="brand-attr-sub">Spotless Finish</div>
+      </div>
+    </div>
+    <div class="brand-attr">
+      <div class="brand-attr-icon">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </div>
+      <div>
+        <div class="brand-attr-title">Friendly</div>
+        <div class="brand-attr-sub">Caring &amp; Approachable</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CLIENTS LOVE US -->
+<section id="why">
+  <div class="why-inner">
+    <div>
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Why Choose Us</span>
+      </div>
+      <h2 class="section-h2" style="margin-bottom:8px;">Why Clients Love Our<br>Cleaning Services</h2>
+      <p class="section-sub" style="margin-bottom:32px;max-width:440px;">That's why we focus on delivering exceptional quality, reliability, and care. From using eco-friendly products to delivering exceptional and transparent pricing.</p>
+
+      <div class="why-feature-list">
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="why-feature-title">Professional — Reliable &amp; Trustworthy</div>
+            <div class="why-feature-desc">Verified, background-checked professionals with full public liability insurance on every job. You can trust us completely.</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="why-feature-title">Efficient — Timely Completion</div>
+            <div class="why-feature-desc">We respect your schedule and handover deadlines. Same-week bookings, punctual arrivals, and fast turnaround — every time.</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <div>
+            <div class="why-feature-title">Detail-Oriented — Spotless Finish</div>
+            <div class="why-feature-desc">We clean what others overlook. Skirting boards, inside appliances, behind furniture — nothing is missed, ever.</div>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div>
+            <div class="why-feature-title">Friendly — Caring &amp; Approachable</div>
+            <div class="why-feature-desc">A team that genuinely cares about your property. We treat every space with the same care and respect as our own.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-cta-row">
+        <a class="btn-primary" href="#contact">Learn More</a>
+        <a class="why-phone" href="tel:+447000000000">
+          <div class="why-phone-icon">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="why-phone-label">Call us anytime</div>
+            <div class="why-phone-number">+44 7XXX XXX XXX</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="why-img-wrap">
+      <img class="why-img" src="https://placehold.co/560x520/D0E4EE/46718F?text=Professional+Team" alt="Professional cleaning team at work">
+      <div class="why-img-overlay"></div>
+      <div class="why-img-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS / TRUST -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stats-content">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Our Track Record</span>
+      </div>
+      <h2 class="stats-h2">Why Thousands Trust Us for <em>Spotless</em> Clean</h2>
+      <p class="stats-sub">Trusted by property developers, landlords, and businesses across the region. Our numbers speak for themselves.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">&gt;95<span>%</span></div>
+          <div class="stat-label">Client satisfaction rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1000<span>+</span></div>
+          <div class="stat-label">Properties cleaned</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5<span>★</span></div>
+          <div class="stat-label">Average review rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3<span>+</span></div>
+          <div class="stat-label">Years in service</div>
+        </div>
+      </div>
+
+      <a class="btn-outline" href="#why">About Us</a>
+    </div>
+
+    <div class="stats-img-wrap">
+      <img class="stats-img" src="https://placehold.co/640x500/C8DDE8/2d5470?text=Cleaning+Supplies" alt="Professional cleaning supplies and equipment">
+      <div class="stats-img-overlay"></div>
+      <div class="stats-img-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">What We Do</span>
+      </div>
+      <h2 class="section-h2">One-Stop Cleaning Solutions</h2>
+      <p class="section-sub">We offer a range of professional cleaning services to meet your unique needs and budget, all delivered to the highest standard.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/EBF3F8/46718F?text=Residential" alt="Residential house cleaning">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">Residential Clean</h3>
+          <p class="service-desc">A thorough, top-to-bottom clean of your home, leaving every room immaculate and fresh. Perfect for regular upkeep or one-off deep cleans.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/DFF0EB/2d5470?text=Deep+Clean" alt="Deep cleaning service">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">Deep Clean</h3>
+          <p class="service-desc">Our most thorough service. We go beyond the surface — cleaning inside appliances, behind furniture, and in every hard-to-reach corner.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/D8E5ED/46718F?text=End+of+Tenancy" alt="End of tenancy cleaning">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">End of Tenancy Clean</h3>
+          <p class="service-desc">Secure your full deposit back with a landlord and letting agency approved deep clean. Appliances, bathrooms, and every surface included.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/D5E3EC/3d6b85?text=Post-Construction" alt="Post-construction cleaning">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">Post-Construction Clean</h3>
+          <p class="service-desc">We remove dust, debris, paint splatters, and construction residue to make your newly built or renovated property move-in ready.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/E5EFF5/46718F?text=Commercial" alt="Commercial office cleaning">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">Commercial Clean</h3>
+          <p class="service-desc">Keep your business premises pristine and professional. Flexible scheduling for offices, retail spaces, and corporate environments.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img-wrap">
+          <img class="service-img" src="https://placehold.co/480x190/EBF3F8/2d5470?text=Window+Clean" alt="Window and glass cleaning">
+          <div class="service-img-overlay"></div>
+        </div>
+        <div class="service-body">
+          <h3 class="service-h3">Window &amp; Glass Clean</h3>
+          <p class="service-desc">Crystal-clear windows and glass surfaces inside and out. A streak-free, spotless finish that instantly lifts the look of any property.</p>
+          <a class="service-cta" href="#contact">Get a quote →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOK + WE DO IT BEST -->
+<section id="book">
+  <div class="book-inner" style="max-width:100%;">
+    <div class="book-left" style="max-width:600px;margin-left:auto;padding-right:80px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Get Started</span>
+      </div>
+      <h2 class="section-h2">Book a Service</h2>
+      <p class="section-sub" style="margin-bottom:0;">Choose your cleaning service below and we'll get back to you with a free, no-obligation quote within a few hours.</p>
+
+      <div class="book-service-list">
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <span class="book-service-name">Residential Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <span class="book-service-name">Deep Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+          </div>
+          <span class="book-service-name">End of Tenancy Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <span class="book-service-name">Post-Construction Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <span class="book-service-name">Commercial Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </div>
+          <span class="book-service-name">Window &amp; Glass Clean</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="book-right" style="max-width:600px;margin-right:auto;padding-left:80px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">We Do It Best</span>
+      </div>
+      <h2 class="book-right-h2">Enjoy a Spotless Space</h2>
+      <p class="book-right-sub">Our professional team delivers a consistently exceptional clean — every visit, every property. Here's what makes us different.</p>
+
+      <div class="book-right-features">
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Professional &amp; Fully Insured</strong>
+            Background-checked cleaners with public liability insurance and professional training certifications.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Timely Completion</strong>
+            We respect your schedule and handover deadlines. On time, every time — or we make it right.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Detail-Oriented Approach</strong>
+            We clean what others overlook. Skirting boards, behind appliances, inside cupboards — nothing is missed.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Friendly &amp; Approachable</strong>
+            A team that genuinely cares about your property and your peace of mind, every step of the way.
+          </div>
+        </div>
+      </div>
+
+      <a class="btn-primary" href="#contact" style="font-size:15px;padding:13px 28px;">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">How It Works</span>
+      </div>
+      <h2 class="section-h2">Simple. Seamless. Spotless.</h2>
+      <p class="section-sub" style="max-width:460px;">Four straightforward steps from first contact to a perfectly clean handover.</p>
+    </div>
+    <div class="process-steps">
+      <div>
+        <div class="step-number">01</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Get in Touch</h4>
+        <p class="step-desc">Contact us with details about your property and cleaning needs. We respond within a few hours.</p>
+      </div>
+      <div>
+        <div class="step-number">02</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Receive a Quote</h4>
+        <p class="step-desc">We provide a transparent, no-obligation quote tailored to your exact requirements and timeline.</p>
+      </div>
+      <div>
+        <div class="step-number">03</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">We Clean</h4>
+        <p class="step-desc">Our professional team arrives on time and delivers an exceptional, thorough clean to the highest standard.</p>
+      </div>
+      <div>
+        <div class="step-number">04</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Spotless Handover</h4>
+        <p class="step-desc">Inspect and approve. Your property is pristine and ready for a confident, stress-free handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Client Reviews</span>
+      </div>
+      <h2 class="section-h2">What our clients say.</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">Spotless Handover did an incredible job on our new build. Not a speck of dust left — the developers signed off immediately. Will absolutely use again for our next project.</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#46718F,#2d5470);color:#fff;">JM</div>
+          <div>
+            <div class="review-name">James Morrison</div>
+            <div class="review-role">Property Developer</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card featured">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">Got my full deposit back — the landlord was blown away. The end-of-tenancy clean was thorough, professional, and made moving out completely stress-free. Highly recommended.</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:rgba(149,220,207,0.4);color:#1a2e3b;">SL</div>
+          <div>
+            <div class="review-name">Sophie Laurent</div>
+            <div class="review-role">Tenant, London</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span>
+        </div>
+        <p class="review-text">We use Spotless Handover for our entire office complex. Reliable, thorough, always professional. Our workspace has never looked better — a team you can genuinely trust.</p>
+        <div class="review-author">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#46718F,#2d5470);color:#fff;">RT</div>
+          <div>
+            <div class="review-name">Rachel Thompson</div>
+            <div class="review-role">Office Manager</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY BAR -->
+<section id="trust">
+  <div class="trust-inner">
+    <div class="trust-left">
+      <img class="trust-logo" src="brand_assets/Gemini_Generated_Image_975w93975w93975w.png" alt="Spotless Handover">
+      <div>
+        <div class="trust-headline">Trusted by thousands of people</div>
+        <div class="trust-sub">Across London, Surrey and Kent</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div class="trust-ratings">
+        <span class="trust-star">★</span>
+        <span class="trust-star">★</span>
+        <span class="trust-star">★</span>
+        <span class="trust-star">★</span>
+        <span class="trust-star">★</span>
+        <span class="trust-score">4.9</span>
+        <span class="trust-count">· 200+ reviews</span>
+      </div>
+    </div>
+    <a class="btn-primary" href="#contact">Book a Service</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <img class="cta-logo" src="brand_assets/Gemini_Generated_Image_975w93975w93975w.png" alt="Spotless Handover">
+    <span class="cta-brand-tag">Post-Constructions · End of Tenancy · Commercial &amp; Residential</span>
+    <h2 class="cta-h2">Ready for a spotless handover?</h2>
+    <p class="cta-sub">Get in touch today for a free, no-obligation quote. We'll have your property sparkling and ready.</p>
+    <div class="cta-btns">
+      <a class="btn-dark" href="tel:+447000000000">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        Call Now
+      </a>
+      <a class="btn-outline" href="#contact">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Get a Quote</span>
+      </div>
+      <h2 class="section-h2">Let's get your property spotless.</h2>
+      <p class="section-sub">Fill in the form and we'll get back to you within a few hours with a tailored quote. No obligation, no pressure.</p>
+      <div class="contact-details" style="margin-top:40px;">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+44 7XXX XXX XXX</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">info@spotlesshandover.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Hours</div>
+            <div class="contact-detail-value">Monday – Saturday, 7:00am – 8:00pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Request a Quote</div>
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div>
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="John">
+          </div>
+          <div>
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" placeholder="+44 7XXX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Type</label>
+          <select class="form-select">
+            <option value="">Select a service…</option>
+            <option value="residential">Residential Clean</option>
+            <option value="deep">Deep Clean</option>
+            <option value="end-of-tenancy">End of Tenancy Clean</option>
+            <option value="post-construction">Post-Construction Clean</option>
+            <option value="commercial">Commercial Clean</option>
+            <option value="window">Window &amp; Glass Clean</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">About Your Property</label>
+          <textarea class="form-textarea" placeholder="Property size, location, any specific requirements…"></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send My Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-logo-wrap">
+          <img class="footer-logo-img" src="brand_assets/Gemini_Generated_Image_975w93975w93975w.png" alt="Spotless Handover">
+          <div>
+            <span class="footer-logo-text">Spotless<span> Handover</span></span>
+            <span class="footer-brand-tag">Post-Constructions · End of Tenancy · Commercial</span>
+          </div>
+        </a>
+        <p class="footer-desc">Professional cleaning for post-construction, end of tenancy, and commercial properties. A spotless finish, every time.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="#" aria-label="Facebook">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="footer-social" href="#" aria-label="Instagram">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Residential Clean</a></li>
+          <li><a href="#services">Deep Clean</a></li>
+          <li><a href="#services">End of Tenancy</a></li>
+          <li><a href="#services">Post-Construction</a></li>
+          <li><a href="#services">Commercial Clean</a></li>
+          <li><a href="#services">Window Clean</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <p class="footer-contact-item">+44 7XXX XXX XXX</p>
+        <p class="footer-contact-item">info@spotlesshandover.com</p>
+        <p class="footer-contact-item">Mon–Sat: 7:00am – 8:00pm</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Spotless Handover. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

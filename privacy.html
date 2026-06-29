@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Kleanly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --blue: #46718F;
+      --blue-dark: #2d5470;
+      --blue-deeper: #1a2e3b;
+      --teal: #95DCCF;
+      --teal-dark: #72c9b8;
+      --teal-light: #EDF9F6;
+      --base: #F8F8F5;
+      --white: #ffffff;
+      --text-body: #3d5a6e;
+      --text-muted: #6b7280;
+      --border: rgba(70,113,143,0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background: #ffffff;
+      color: var(--blue-deeper);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+    /* ── HEADER ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    #header.scrolled { box-shadow: 0 2px 20px rgba(70,113,143,0.1); }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img { height: 48px; width: auto; object-fit: contain; }
+    .logo-name { height: 52px; width: auto; object-fit: contain; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+    .nav-link {
+      position: relative; color: var(--text-body);
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      padding-bottom: 3px; transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 0; height: 2px; background: var(--teal);
+      transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .nav-link:hover { color: var(--blue-deeper); }
+    .nav-link:hover::after { width: 100%; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 11px 22px; border-radius: 4px;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(149,220,207,0.35);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-1px); background: var(--teal-dark); }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+
+    /* ── CONTENT ── */
+    .policy-wrap {
+      max-width: 760px; margin: 0 auto;
+      padding: 120px 32px 96px;
+    }
+
+    .policy-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; color: var(--blue);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .policy-label-line { width: 24px; height: 2px; background: var(--teal); flex-shrink: 0; }
+
+    .policy-h1 {
+      font-size: clamp(36px, 4.5vw, 56px); font-weight: 800;
+      color: var(--blue-deeper); letter-spacing: -0.04em; line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .policy-meta {
+      font-size: 13px; color: var(--text-muted); margin-bottom: 40px;
+      padding-bottom: 40px; border-bottom: 1px solid var(--border);
+    }
+
+    .policy-intro {
+      font-size: 16px; color: var(--text-body); line-height: 1.74;
+      margin-bottom: 16px;
+    }
+    .policy-intro + .policy-intro { margin-bottom: 48px; }
+
+    .policy-section { margin-bottom: 48px; }
+
+    .policy-section-title {
+      font-size: 22px; font-weight: 700; color: var(--blue-deeper);
+      letter-spacing: -0.02em; margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--teal-light);
+    }
+
+    .policy-text {
+      font-size: 15px; color: var(--text-body); line-height: 1.78;
+      margin-bottom: 14px;
+    }
+
+    .policy-list {
+      list-style: none; display: flex; flex-direction: column; gap: 16px;
+      margin-bottom: 14px;
+    }
+    .policy-list li {
+      display: block; padding-left: 18px; position: relative;
+      font-size: 15px; color: var(--text-body); line-height: 1.72;
+    }
+    .policy-list li::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); position: absolute; left: 0; top: 8px;
+    }
+    .policy-list li strong {
+      display: block; color: var(--blue-deeper);
+      font-size: 15px; margin-bottom: 2px;
+    }
+
+    .policy-note {
+      background: var(--teal-light); border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0; padding: 16px 20px;
+      font-size: 14px; color: var(--text-body); line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .policy-note strong { color: var(--blue-deeper); }
+
+    .policy-contact-list {
+      list-style: none; display: flex; flex-direction: column; gap: 8px;
+      margin-top: 12px;
+    }
+    .policy-contact-list li {
+      font-size: 15px; color: var(--text-body); line-height: 1.7;
+      display: flex; gap: 8px; align-items: baseline;
+    }
+    .policy-contact-list li strong { color: var(--blue-deeper); min-width: 70px; }
+    .policy-contact-list a { color: var(--blue); text-decoration: none; }
+    .policy-contact-list a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--blue-deeper); padding: 64px 32px 32px; color: rgba(255,255,255,0.7); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+    .footer-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .footer-logo-name { height: 52px; width: auto; object-fit: contain; }
+    .footer-desc { font-size: 14px; line-height: 1.72; color: rgba(255,255,255,0.48); max-width: 420px; margin-bottom: 22px; }
+    .footer-socials { display: flex; gap: 8px; }
+    .footer-social {
+      width: 34px; height: 34px; border-radius: 6px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-social:hover { background: rgba(149,220,207,0.15); color: var(--teal); transform: translateY(-2px); }
+    .footer-col-title { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-contact-item { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 8px; line-height: 1.5; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s ease; }
+    .footer-legal a:hover { color: var(--teal); }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <img class="logo-img" src="brand_assets/Elephant only.png" alt="Kleanly elephant">
+      <img class="logo-name" src="brand_assets/kleanly-name-transparent.png" alt="Kleanly">
+    </a>
+    <nav>
+      <a class="nav-link" href="index.html#why">Why Us</a>
+      <a class="nav-link" href="index.html#process">Process</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
+      <a class="nav-link" href="checklist.html">Checklist</a>
+      <a class="btn-primary" href="index.html#contact">Book Appointment</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="policy-wrap">
+
+    <div class="policy-label">
+      <span class="policy-label-line"></span>
+      Legal
+    </div>
+
+    <h1 class="policy-h1">Privacy Policy</h1>
+    <p class="policy-meta"><strong>Last Updated:</strong> June 2026</p>
+
+    <p class="policy-intro">Welcome to <strong>Kleanly</strong> (accessible via <a href="https://www.kleanly.com.au" style="color:var(--blue);">https://www.kleanly.com.au</a>). Your privacy is incredibly important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our cleaning services.</p>
+
+    <p class="policy-intro" style="margin-bottom:48px;">We comply with the <strong>Australian Privacy Principles (APPs)</strong> contained in the <em>Privacy Act 1988</em> (Cth). By using our website and services, you agree to the terms of this Privacy Policy.</p>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">1. Information We Collect</h2>
+      <p class="policy-text">We may collect personal information from you in a variety of ways, including when you visit our site, request a quote, book a service, or contact us.</p>
+      <ul class="policy-list">
+        <li><strong>Personal Identification Information:</strong>&nbsp;Name, email address, phone number, physical address (for cleaning services), and billing information.</li>
+        <li><strong>Non-Personal Identification Information:</strong>&nbsp;Browser name, type of computer, technical information about your means of connection to our site (like your operating system and internet service provider), and IP address.</li>
+        <li><strong>Cookies:</strong>&nbsp;Our website may use "cookies" to enhance your user experience. You can choose to set your web browser to refuse cookies, but some parts of the site may not function properly as a result.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">2. How We Use Your Information</h2>
+      <p class="policy-text">Kleanly collects and uses your personal information for the following purposes:</p>
+      <ul class="policy-list">
+        <li><strong>To provide and manage our services:</strong>&nbsp;To schedule, execute, and manage your cleaning bookings.</li>
+        <li><strong>To improve customer service:</strong>&nbsp;Your information helps us respond to your customer service requests and support needs more efficiently.</li>
+        <li><strong>To process payments:</strong>&nbsp;We use the information you provide about yourself when placing an order only to service that order. We do not share this information with outside parties except to the extent necessary to provide the service.</li>
+        <li><strong>To send periodic emails or SMS:</strong>&nbsp;We may use your email address or phone number to send you updates regarding your booking. It may also be used to respond to inquiries, questions, and/or other requests.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">3. How We Protect Your Information</h2>
+      <p class="policy-text">We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our site.</p>
+      <div class="policy-note">
+        <strong>Note on Payments:</strong> All credit card and payment processing is handled through secure, PCI-compliant third-party payment gateways. We do not store your credit card details on our servers.
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">4. Sharing Your Personal Information</h2>
+      <p class="policy-text">We do <strong>not</strong> sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners and trusted affiliates for the purposes outlined above.</p>
+      <p class="policy-text">We may use third-party service providers (such as website hosts or booking software) to help us operate our business and the site or administer activities on our behalf. We only share your information with these parties for those limited purposes.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">5. Third-Party Websites</h2>
+      <p class="policy-text">Users may find advertising or other content on our site that links to the sites and services of our partners, suppliers, advertisers, sponsors, and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our site.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">6. Accessing and Correcting Your Information</h2>
+      <p class="policy-text">Under the Australian Privacy Principles, you have the right to access the personal information we hold about you and to request that it be corrected if it is inaccurate. If you wish to access or update your information, please contact us using the details below.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">7. Changes to This Privacy Policy</h2>
+      <p class="policy-text">Kleanly has the discretion to update this privacy policy at any time. When we do, we will revise the "Last Updated" date at the top of this page. We encourage users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 class="policy-section-title">8. Contacting Us</h2>
+      <p class="policy-text">If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:</p>
+      <ul class="policy-contact-list">
+        <li><strong>Website:</strong> <a href="https://www.kleanly.com.au">https://www.kleanly.com.au</a></li>
+        <li><strong>Email:</strong> <a href="mailto:hello@kleanly.com.au">hello@kleanly.com.au</a></li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo-wrap">
+          <img class="footer-logo-img" src="brand_assets/elephant-transparent.png" alt="Kleanly elephant">
+          <img class="footer-logo-name" src="brand_assets/kleanly-name-transparent.png" alt="Kleanly">
+        </a>
+        <p class="footer-desc">Professional cleaning for post-construction, end of tenancy, and commercial properties. A spotless finish, every time.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="#" aria-label="Facebook">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="footer-social" href="#" aria-label="Instagram">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#services">Post-Construction Clean</a></li>
+          <li><a href="index.html#services">End of Tenancy Clean</a></li>
+          <li><a href="index.html#services">Commercial Clean</a></li>
+          <li><a href="index.html#services">Others</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#why">About Us</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="index.html#process">How It Works</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <p class="footer-contact-item">+61 7XXX XXX XXX</p>
+        <p class="footer-contact-item">hello@kleanly.com.au</p>
+        <p class="footer-contact-item">Mon–Sat: 7:00am – 8:00pm</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Kleanly. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+</script>
+
+</body>
+</html>

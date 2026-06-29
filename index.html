@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotless Handover — Professional Cleaning Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --blue: #46718F;
+      --blue-dark: #2d5470;
+      --blue-deeper: #1a2e3b;
+      --blue-soft: #c7e8f3;
+      --teal: #95DCCF;
+      --teal-dark: #72c9b8;
+      --teal-light: #EDF9F6;
+      --base: #F8F8F5;
+      --white: #ffffff;
+      --text-body: #3d5a6e;
+      --text-muted: #6b7280;
+      --border: rgba(70,113,143,0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(circle at 18% 22%, rgba(149,220,207,0.18), transparent 25%),
+                  radial-gradient(circle at 82% 8%, rgba(70,113,143,0.16), transparent 18%),
+                  linear-gradient(180deg, #eaf6fb 0%, #f5fbff 35%, #ffffff 100%);
+      background-attachment: fixed;
+      color: var(--blue-deeper);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--base); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+    /* ── HEADER ── */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    #header.scrolled { box-shadow: 0 2px 20px rgba(70,113,143,0.1); }
+
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-img { height: 48px; width: auto; object-fit: contain; }
+    .logo-name { height: 52px; width: auto; object-fit: contain; }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    .mob-menu-btn {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .mob-menu-btn span {
+      display: block; width: 22px; height: 2px; background: var(--blue-deeper);
+      border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .mob-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mob-menu-btn.open span:nth-child(2) { opacity: 0; }
+    .mob-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mob-nav {
+      display: none; position: fixed; top: 72px; left: 0; right: 0;
+      background: #fff; border-top: 1px solid rgba(70,113,143,0.08);
+      box-shadow: 0 8px 24px rgba(70,113,143,0.1);
+      padding: 20px 32px 28px; flex-direction: column; gap: 4px; z-index: 999;
+    }
+    .mob-nav.open { display: flex; }
+    .mob-nav .nav-link {
+      font-size: 16px; padding: 12px 0; border-bottom: 1px solid rgba(70,113,143,0.07);
+    }
+    .mob-nav .btn-primary { margin-top: 12px; text-align: center; }
+
+    .nav-link {
+      position: relative; color: var(--text-body);
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      padding-bottom: 3px; transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -1px; left: 0;
+      width: 0; height: 2px; background: var(--teal);
+      transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .nav-link:hover { color: var(--blue-deeper); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid var(--teal); border-radius: 2px; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 11px 22px; border-radius: 4px;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(149,220,207,0.35);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px); background: var(--teal-dark);
+      box-shadow: 0 8px 24px rgba(149,220,207,0.45);
+    }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+    .btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--blue-deeper); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 10px 21px; border-radius: 4px;
+      text-decoration: none; cursor: pointer; background: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+                  transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .btn-outline:hover {
+      background: rgba(70,113,143,0.05);
+      border-color: var(--blue); color: var(--blue);
+      transform: translateY(-1px);
+    }
+    .btn-outline:active { transform: translateY(0); }
+    .btn-outline:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-deeper); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      padding: 11px 22px; border-radius: 4px;
+      text-decoration: none; border: none; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,46,59,0.22);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn-dark:hover {
+      transform: translateY(-1px); background: var(--blue-dark);
+      box-shadow: 0 8px 24px rgba(26,46,59,0.3);
+    }
+    .btn-dark:active { transform: translateY(0) scale(0.99); }
+    .btn-dark:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .section-label-line { width: 28px; height: 2px; background: var(--teal); flex-shrink: 0; }
+    .section-label-text {
+      font-size: 11px; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    .section-h2 {
+      font-size: clamp(28px, 3.8vw, 48px); font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--text-body); line-height: 1.72;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      padding-top: 72px;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: transparent;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 15%, rgba(70,113,143,0.14), transparent 25%),
+                  radial-gradient(circle at 80% 20%, rgba(149,220,207,0.18), transparent 22%),
+                  radial-gradient(circle at 50% 80%, rgba(255,255,255,0.85), transparent 35%);
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      left: 12%; top: 10%;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(149,220,207,0.32) 0%, rgba(149,220,207,0.02) 60%);
+      filter: blur(38px);
+      transform: translateZ(0);
+      animation: floatSlow 10s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-inner::before {
+      content: '';
+      position: absolute;
+      right: 0; bottom: -20px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(70,113,143,0.18) 0%, rgba(70,113,143,0.01) 55%);
+      filter: blur(30px);
+      transform: translateZ(0);
+      animation: floatDrift 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px; margin: 0 auto; padding: 56px 32px;
+      display: grid; grid-template-columns: 55fr 45fr; gap: 64px; align-items: center;
+    }
+
+    .hero-h1 {
+      font-size: clamp(40px, 5.2vw, 72px); font-weight: 800;
+      color: var(--blue-deeper); line-height: 1.04;
+      letter-spacing: -0.04em; margin-bottom: 20px;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      background-image: linear-gradient(to right, var(--teal), var(--teal-dark));
+      background-size: 100% 5px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      padding-bottom: 3px;
+    }
+    .hero-sub {
+      font-size: 16px; color: var(--text-body); line-height: 1.74;
+      max-width: 440px; margin-bottom: 32px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+
+    /* Trustpilot row */
+    .hero-social-proof {
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .trustpilot-widget { display: flex; flex-direction: column; gap: 5px; }
+    .tp-stars { display: flex; gap: 3px; margin-bottom: 4px; }
+    .tp-star {
+      width: 26px; height: 26px;
+      background: #00b67a;
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tp-star svg { display: block; }
+    .tp-label {
+      display: flex; align-items: center; gap: 7px;
+    }
+    .tp-score { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--blue-deeper); }
+    .tp-text { font-size: 13px; color: var(--text-muted); }
+    .tp-logo {
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      color: #00b67a; letter-spacing: -0.01em;
+    }
+
+    .social-proof-divider { width: 1px; height: 44px; background: var(--border); flex-shrink: 0; }
+
+    .google-widget { display: flex; flex-direction: column; gap: 5px; }
+    .gw-stars { display: flex; gap: 3px; margin-bottom: 4px; }
+    .gw-label { display: flex; align-items: center; gap: 6px; }
+    .gw-score { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--blue-deeper); }
+    .gw-text { font-size: 13px; color: var(--text-muted); }
+    .gw-logo { display: flex; align-items: center; }
+
+    .avatar-cluster { display: flex; align-items: center; gap: 10px; }
+    .avatar-stack { display: flex; }
+    .avatar-circle {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 11px;
+      margin-left: -9px; flex-shrink: 0;
+    }
+    .avatar-circle:first-child { margin-left: 0; }
+    .avatar-cluster-label { font-size: 13px; color: var(--text-body); line-height: 1.4; }
+    .avatar-cluster-label strong {
+      display: block; font-family: 'Poppins', sans-serif; font-size: 13px;
+      font-weight: 700; color: var(--blue-deeper);
+    }
+
+    /* Service area pills */
+    .hero-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--base); border: 1px solid var(--border);
+      border-radius: 100px; padding: 5px 12px;
+      font-size: 12px; font-weight: 600; color: var(--text-body);
+    }
+    .hero-pill svg { color: var(--blue); flex-shrink: 0; }
+
+    /* Hero form */
+    .hero-form-col { display: flex; flex-direction: column; }
+    .hero-form-card {
+      background: var(--white); border-radius: 16px; padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(70,113,143,0.08), 0 24px 56px rgba(70,113,143,0.13);
+    }
+    .hero-form-title {
+      font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+    .hero-form-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; }
+    .hero-form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 12px;
+    }
+    .hero-form-card .form-group { margin-bottom: 12px; }
+    .hero-form-card .form-textarea { min-height: 76px; }
+    .hero-form-card .form-submit { margin-top: 4px; }
+
+    /* ── WHY SECTION ── */
+    #why { padding: 32px 32px 24px; background: transparent; }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+
+    .why-header { margin-bottom: 48px; }
+
+    .why-feature-list {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      margin-bottom: 48px;
+    }
+    .why-feature {
+      display: flex; flex-direction: column;
+      padding: 28px 24px;
+      border: 1px solid var(--border); border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.06);
+    }
+    .why-feature-icon {
+      width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(149,220,207,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .why-feature-title {
+      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 3px;
+    }
+    .why-feature-sub {
+      font-size: 12px; font-weight: 600; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;
+    }
+    .why-feature-desc { font-size: 13.5px; color: var(--text-body); line-height: 1.68; }
+
+    .why-cta-row {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .why-phone {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .why-phone-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--teal-light); border: 1px solid rgba(149,220,207,0.4);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .why-phone-label { font-size: 11px; color: var(--text-muted); font-weight: 500; margin-bottom: 1px; }
+    .why-phone-number {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      color: var(--blue-deeper);
+    }
+
+    /* ── STATS SECTION ── */
+    #stats { padding: 24px 32px 64px; background: transparent; }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 45fr 55fr; gap: 80px; align-items: center;
+    }
+    .stats-content {}
+    .stats-h2 {
+      font-size: clamp(28px, 3.8vw, 48px); font-weight: 700;
+      color: var(--blue-deeper); letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .stats-h2 em { font-style: normal; color: var(--blue); }
+    .stats-sub {
+      font-size: 16px; color: var(--text-body); line-height: 1.74;
+      margin-bottom: 40px; max-width: 400px;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;
+    }
+    .stat-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px 20px;
+      box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.06);
+    }
+    .stat-number {
+      font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 800;
+      color: var(--teal); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .stat-number span { color: var(--teal); }
+    .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+    .stats-img-wrap { position: relative; border-radius: 12px; overflow: hidden; }
+    .stats-img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .stats-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.2) 0%, transparent 60%);
+    }
+    .stats-img-accent {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(to right, var(--teal), var(--teal-dark));
+    }
+
+    /* ── SERVICES ── */
+    /* ── BOOK SPLIT ── */
+    #book { background: transparent; }
+    .book-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+
+    .book-left {
+      padding: 56px 48px 56px 32px;
+      background: var(--white);
+    }
+    .book-right {
+      padding: 56px 32px 56px 48px;
+      background: var(--blue-deeper);
+      border-radius: 0;
+    }
+
+    .book-service-list { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+    .book-service-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .book-service-item:first-child { border-top: 1px solid var(--border); }
+    .book-service-item:hover { transform: translateX(4px); }
+    .book-service-item:focus-visible { outline: 2px solid var(--teal); border-radius: 2px; }
+    .book-service-icon {
+      width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0;
+      background: rgba(149,220,207,0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .book-service-name {
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--blue-deeper); flex: 1;
+    }
+    .book-service-arrow { color: var(--blue); flex-shrink: 0; }
+
+    /* Right dark panel */
+    .book-right .section-label-text { color: var(--teal); }
+    .book-right .section-label-line { background: var(--teal); }
+    .book-right-h2 {
+      font-size: clamp(24px, 3vw, 38px); font-weight: 700;
+      color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px;
+    }
+    .book-right-sub {
+      font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.74; margin-bottom: 36px;
+    }
+    .book-right-features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .book-right-feature { display: flex; align-items: flex-start; gap: 12px; }
+    .book-right-feature-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .book-right-feature-text {
+      font-size: 14.5px; color: rgba(255,255,255,0.8); line-height: 1.6;
+    }
+    .book-right-feature-text strong {
+      display: block; font-family: 'Poppins', sans-serif; font-size: 14px;
+      font-weight: 700; color: #fff; margin-bottom: 2px;
+    }
+
+    /* ── PROCESS ── */
+    #process { padding: 64px 32px; background: transparent; }
+    .process-inner { max-width: 1200px; margin: 0 auto; }
+    .process-header { margin-bottom: 64px; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .step-number {
+      font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800;
+      color: rgba(149,220,207,0.85); line-height: 1; margin-bottom: 16px;
+      letter-spacing: -0.04em;
+    }
+    .step-accent-line { width: 28px; height: 2px; background: var(--teal); margin-bottom: 14px; }
+    .step-title {
+      font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 8px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-body); line-height: 1.7; }
+
+    /* ── CTA ── */
+    #cta { padding: 64px 32px; background: transparent; }
+    .cta-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .cta-logo { width: 96px; height: 96px; object-fit: contain; margin-bottom: 16px; border-radius: 50%; box-shadow: 0 8px 28px rgba(149,220,207,0.4), 0 0 0 4px rgba(149,220,207,0.18); }
+    .cta-brand-tag {
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+      color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 24px; display: block;
+    }
+    .cta-h2 {
+      font-size: clamp(30px, 4vw, 52px); font-weight: 800;
+      color: var(--blue-deeper); letter-spacing: -0.03em;
+      line-height: 1.12; margin-bottom: 14px;
+    }
+    .cta-sub {
+      font-size: 17px; color: var(--text-body); line-height: 1.7;
+      max-width: 460px; margin: 0 auto 36px;
+    }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── CONTACT ── */
+    #contact { padding: 64px 32px 32px; background: transparent; }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .contact-info .section-h2 { margin-bottom: 14px; }
+    .contact-info .section-sub { margin-bottom: 40px; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail { display: flex; align-items: center; gap: 16px; }
+    .contact-detail-icon {
+      width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(149,220,207,0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-detail-label {
+      font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700;
+      color: var(--blue); text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 3px;
+    }
+    .contact-detail-value { font-size: 15px; color: var(--blue-deeper); font-weight: 500; }
+
+    .contact-form {
+      background: var(--white); border-radius: 12px; padding: 36px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(70,113,143,0.06), 0 16px 40px rgba(70,113,143,0.08);
+    }
+    .form-title {
+      font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700;
+      color: var(--blue-deeper); margin-bottom: 24px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-label {
+      display: block; font-family: 'Poppins', sans-serif;
+      font-size: 11.5px; font-weight: 700; color: var(--blue-deeper);
+      letter-spacing: 0.04em; margin-bottom: 7px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid rgba(70,113,143,0.18); border-radius: 6px;
+      font-size: 14.5px; font-family: 'Inter', sans-serif;
+      color: var(--blue-deeper); background: var(--white);
+      outline: none; appearance: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: #9ca3af; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(70,113,143,0.1);
+    }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%; padding: 13px; margin-top: 6px;
+      background: var(--blue-deeper); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      border: none; border-radius: 4px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,46,59,0.2);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1),
+                  box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .form-submit:hover {
+      transform: translateY(-1px); background: var(--blue-dark);
+      box-shadow: 0 8px 24px rgba(26,46,59,0.28);
+    }
+    .form-submit:active { transform: translateY(0); }
+    .form-submit:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--blue-deeper); padding: 64px 32px 32px; color: rgba(255,255,255,0.7); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 16px; }
+    .footer-logo-img { height: 48px; width: auto; object-fit: contain; }
+    .footer-logo-name { height: 52px; width: auto; object-fit: contain; }
+    .footer-brand-tag { font-size: 10px; color: rgba(255,255,255,0.28); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; display: block; }
+    .footer-logo-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: #fff; letter-spacing: -0.01em; }
+    .footer-logo-text span { color: var(--teal); }
+    .footer-desc { font-size: 14px; line-height: 1.72; color: rgba(255,255,255,0.48); max-width: 420px; margin-bottom: 22px; }
+    .footer-socials { display: flex; gap: 8px; }
+    .footer-social {
+      width: 34px; height: 34px; border-radius: 6px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .footer-social:hover { background: rgba(149,220,207,0.18); color: var(--teal); transform: translateY(-2px); }
+    .footer-col-title {
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11px;
+      color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s ease; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact-item { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s ease; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+    section { scroll-margin-top: 72px; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes heroUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes heroRight {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .ha1 { animation: heroUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+    .ha2 { animation: heroUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.2s  both; }
+    .ha3 { animation: heroUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+    .ha4 { animation: heroUp 0.75s cubic-bezier(0.22,1,0.36,1) 0.5s  both; }
+    .ha5 { animation: heroRight 0.85s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    .reveal-r {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal-r.in { opacity: 1; transform: translateX(0); }
+
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.18s; }
+    .d3 { transition-delay: 0.28s; }
+    .d4 { transition-delay: 0.38s; }
+    .d5 { transition-delay: 0.48s; }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, 18px, 0); }
+    }
+
+    @keyframes floatDrift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      25% { transform: translate3d(10px, -10px, 0); }
+      50% { transform: translate3d(0, 12px, 0); }
+      75% { transform: translate3d(-12px, 4px, 0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-main-img { height: 320px; }
+      .why-feature-list { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stats-img { height: 300px; }
+      .book-inner { grid-template-columns: 1fr; }
+      .book-right { border-radius: 0; padding: 64px 32px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+.contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      .mob-menu-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .hero-inner { padding: 60px 20px; }
+      .brand-attrs-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #why, #stats, #process, #reviews, #cta, #contact, #book {
+        padding-left: 20px; padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo-wrap">
+      <img class="logo-img" src="brand_assets/Elephant only.png" alt="Kleanly elephant">
+      <img class="logo-name" src="brand_assets/kleanly-name-transparent.png" alt="Kleanly">
+    </a>
+    <nav>
+      <a class="nav-link" href="#why">Why Us</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
+      <a class="nav-link" href="checklist.html">Checklist</a>
+      <a class="nav-link" href="faq.html">FAQ</a>
+      <a class="btn-primary" href="#contact">Book Appointment</a>
+    </nav>
+    <button class="mob-menu-btn" id="mobMenuBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-nav" id="mobNav">
+    <a class="nav-link" href="#why">Why Us</a>
+    <a class="nav-link" href="#process">Process</a>
+    <a class="nav-link" href="pricing.html">Pricing</a>
+    <a class="nav-link" href="checklist.html">Checklist</a>
+    <a class="nav-link" href="faq.html">FAQ</a>
+    <a class="btn-primary" href="#contact">Book Appointment</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <h1 class="hero-h1 ha1">
+        Sparkling Spaces,<br>
+        <em>Exceptional</em><br>
+        Results.
+      </h1>
+      <p class="hero-sub ha2">
+        Transform your space with our reliable, precision cleaning services. From post-construction to end-of-tenancy, we deliver a spotless environment every time.
+      </p>
+      <div class="hero-ctas ha3">
+        <a class="btn-primary" href="#contact" style="font-size: 15px; padding: 13px 28px;">Book Appointment</a>
+        <a class="btn-outline" href="tel:+447000000000" style="font-size: 15px; padding: 12px 27px; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Call Now
+        </a>
+      </div>
+
+      <!-- Trustpilot + Google -->
+      <div class="hero-social-proof ha4">
+        <div class="trustpilot-widget">
+          <div class="tp-stars">
+            <div class="tp-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div class="tp-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          </div>
+          <div class="tp-label">
+            <span class="tp-score">4.9</span>
+            <span class="tp-text">Excellent ·</span>
+            <span class="tp-logo">★ Trustpilot</span>
+          </div>
+        </div>
+
+        <div class="social-proof-divider"></div>
+
+        <div class="google-widget">
+          <div class="gw-stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <!-- 0.7 partial star -->
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <defs><linearGradient id="pg"><stop offset="70%" stop-color="#f59e0b"/><stop offset="70%" stop-color="#d1d5db"/></linearGradient></defs>
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="url(#pg)"/>
+            </svg>
+          </div>
+          <div class="gw-label">
+            <span class="gw-score">4.7</span>
+            <span class="gw-text">·</span>
+            <span class="gw-logo">
+              <svg width="48" height="16" viewBox="0 0 272 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#EA4335"/>
+                <path d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#FBBC05"/>
+                <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/>
+                <path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/>
+                <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/>
+                <path d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.67l-22.49.03z" fill="#4285F4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero form column -->
+    <div class="hero-form-col ha5">
+      <div class="hero-form-card">
+        <div class="hero-form-title">Get a Free Quote</div>
+        <div class="hero-form-sub">We'll get back to you within a few hours.</div>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
+          <input type="hidden" name="subject" value="New Quote Request — Kleanly">
+          <input type="hidden" name="redirect" value="false">
+          <div class="hero-form-row">
+            <div>
+              <label class="form-label">First Name</label>
+              <input class="form-input" type="text" placeholder="John">
+            </div>
+            <div>
+              <label class="form-label">Last Name</label>
+              <input class="form-input" type="text" placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" type="email" placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" type="tel" placeholder="+61 7XXX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service Type</label>
+            <select class="form-select">
+              <option value="">Select a service…</option>
+              <option value="post-construction">Post-Construction Cleaning</option>
+              <option value="commercial">Commercial Cleaning</option>
+              <option value="end-of-tenancy">End of Tenancy Cleaning</option>
+              <option value="deep-clean">Deep Cleaning</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">About Your Property</label>
+            <textarea class="form-textarea" placeholder="Property size, location, any specific requirements…"></textarea>
+          </div>
+          <button class="form-submit" type="submit">Send My Request →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CLIENTS LOVE US -->
+<section id="why">
+  <div class="why-inner">
+    <div class="why-header reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Why Choose Us</span>
+      </div>
+      <h2 class="section-h2" style="margin-bottom:8px;">Why Clients Love <span style="color:#95DCCF;">Kleanly</span></h2>
+      <p class="section-sub" style="max-width:520px;">We focus on delivering exceptional quality, reliability, and care — from eco-friendly products to transparent pricing.</p>
+    </div>
+
+    <div class="why-feature-list">
+      <div class="why-feature reveal d1">
+        <div class="why-feature-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div class="why-feature-title">Professional</div>
+        <div class="why-feature-sub">Reliable &amp; Trustworthy</div>
+        <div class="why-feature-desc">Verified, background-checked professionals with full public liability insurance on every job.</div>
+      </div>
+      <div class="why-feature reveal d2">
+        <div class="why-feature-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="why-feature-title">Efficient</div>
+        <div class="why-feature-sub">Timely Completion</div>
+        <div class="why-feature-desc">We respect your schedule and handover deadlines. Same-week bookings, punctual arrivals, every time.</div>
+      </div>
+      <div class="why-feature reveal d3">
+        <div class="why-feature-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <div class="why-feature-title">Detail-Oriented</div>
+        <div class="why-feature-sub">Spotless Finish</div>
+        <div class="why-feature-desc">We clean what others overlook. Skirting boards, inside appliances, behind furniture — nothing missed.</div>
+      </div>
+      <div class="why-feature reveal d4">
+        <div class="why-feature-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <div class="why-feature-title">Friendly</div>
+        <div class="why-feature-sub">Caring &amp; Approachable</div>
+        <div class="why-feature-desc">A team that genuinely cares about your property, treating every space with the same care as our own.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS / TRUST -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stats-content reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Our Track Record</span>
+      </div>
+      <h2 class="stats-h2">Why Thousands Trust <span style="color:#95DCCF;">Kleanly</span></h2>
+      <p class="stats-sub">Trusted by property developers, landlords, and businesses across the region. Our numbers speak for themselves.</p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">&gt;95<span>%</span></div>
+          <div class="stat-label">Client satisfaction rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1000<span>+</span></div>
+          <div class="stat-label">Properties cleaned</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5<span>★</span></div>
+          <div class="stat-label">Average review rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3<span>+</span></div>
+          <div class="stat-label">Years in service</div>
+        </div>
+      </div>
+
+      <a class="btn-outline" href="#why">About Us</a>
+    </div>
+
+    <div class="stats-img-wrap reveal-r d2">
+      <img class="stats-img" src="brand_assets/team-cleaning.png" alt="Kleanly team cleaning a kitchen">
+      <div class="stats-img-overlay"></div>
+      <div class="stats-img-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK + WE DO IT BEST -->
+<section id="book">
+  <div class="book-inner" style="max-width:100%;">
+    <div class="book-left" style="max-width:600px;margin-left:auto;padding-right:80px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Get Started</span>
+      </div>
+      <h2 class="section-h2">Book a Service</h2>
+      <p class="section-sub" style="margin-bottom:0;">Choose your cleaning service below and we'll get back to you with a free, no-obligation quote within a few hours.</p>
+
+      <div class="book-service-list">
+        <a class="book-service-item reveal d1" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <span class="book-service-name">Post-Construction Cleaning</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item reveal d2" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+          </div>
+          <span class="book-service-name">End of Tenancy Cleaning</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item reveal d3" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <span class="book-service-name">Commercial Cleaning</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item reveal d4" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <span class="book-service-name">Deep Cleaning</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="book-service-item reveal d5" href="#contact">
+          <div class="book-service-icon">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          </div>
+          <span class="book-service-name">Other</span>
+          <svg class="book-service-arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="book-right reveal d2" style="max-width:600px;margin-right:auto;padding-left:80px;">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">We Do It Best</span>
+      </div>
+      <h2 class="book-right-h2">Enjoy a Kleanly Space</h2>
+      <p class="book-right-sub">Our professional team delivers a consistently exceptional clean — every visit, every property. Here's what makes us different.</p>
+
+      <div class="book-right-features">
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Professional &amp; Fully Insured</strong>
+            Background-checked cleaners with public liability insurance and professional training certifications.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Timely Completion</strong>
+            We respect your schedule and handover deadlines. On time, every time — or we make it right.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Detail-Oriented Approach</strong>
+            We clean what others overlook. Skirting boards, behind appliances, inside cupboards — nothing is missed.
+          </div>
+        </div>
+        <div class="book-right-feature">
+          <div class="book-right-feature-dot"></div>
+          <div class="book-right-feature-text">
+            <strong>Friendly &amp; Approachable</strong>
+            A team that genuinely cares about your property and your peace of mind, every step of the way.
+          </div>
+        </div>
+      </div>
+
+      <a class="btn-primary" href="#quote-form" style="font-size:15px;padding:13px 28px;">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">How It Works</span>
+      </div>
+      <h2 class="section-h2">Simple. Seamless. <span style="color:#95DCCF;">Kleanly.</span></h2>
+      <p class="section-sub" style="max-width:460px;">Four straightforward steps from first contact to a perfectly clean handover.</p>
+    </div>
+    <div class="process-steps">
+      <div class="reveal d1">
+        <div class="step-number">01</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Get in Touch</h4>
+        <p class="step-desc">Contact us with details about your property and cleaning needs. We respond within a few hours.</p>
+      </div>
+      <div class="reveal d2">
+        <div class="step-number">02</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Receive a Quote</h4>
+        <p class="step-desc">We provide a transparent, no-obligation quote tailored to your exact requirements and timeline.</p>
+      </div>
+      <div class="reveal d3">
+        <div class="step-number">03</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">We Clean</h4>
+        <p class="step-desc">Our professional team arrives on time and delivers an exceptional, thorough clean to the highest standard.</p>
+      </div>
+      <div class="reveal d4">
+        <div class="step-number">04</div>
+        <div class="step-accent-line"></div>
+        <h4 class="step-title">Spotless Handover</h4>
+        <p class="step-desc">Inspect and approve. Your property is pristine and ready for a confident, stress-free handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <h2 class="cta-h2 reveal d2">Ready for a <span style="color:#95DCCF;">Kleanly</span> handover?</h2>
+    <p class="cta-sub reveal d3">Get in touch today for a free, no-obligation quote. We'll have your property sparkling and ready.</p>
+    <div class="cta-btns reveal d4">
+      <a class="btn-dark" href="tel:+447000000000">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        Call Now
+      </a>
+      <a class="btn-outline" href="#quote-form">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Get a Quote</span>
+      </div>
+      <h2 class="section-h2">Let's get your property <span style="color:#95DCCF;">Kleanly.</span></h2>
+      <p class="section-sub">Fill in the form and we'll get back to you within a few hours with a tailored quote. No obligation, no pressure.</p>
+      <div class="contact-details" style="margin-top:40px;">
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+61 7XXX XXX XXX</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">hello@kleanly.com.au</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Hours</div>
+            <div class="contact-detail-value">Monday – Saturday, 7:00am – 8:00pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal d3" id="quote-form">
+      <div class="form-title">Request a Quote</div>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
+        <input type="hidden" name="subject" value="New Quote Request — Kleanly">
+        <input type="hidden" name="redirect" value="false">
+        <div class="form-row">
+          <div>
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="John">
+          </div>
+          <div>
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" placeholder="+61 7XXX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Type</label>
+          <select class="form-select">
+            <option value="">Select a service…</option>
+            <option value="post-construction">Post-Construction Cleaning</option>
+            <option value="commercial">Commercial Cleaning</option>
+            <option value="end-of-tenancy">End of Tenancy Cleaning</option>
+            <option value="deep-clean">Deep Cleaning</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">About Your Property</label>
+          <textarea class="form-textarea" placeholder="Property size, location, any specific requirements…"></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send My Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-logo-wrap">
+          <img class="footer-logo-img" src="brand_assets/elephant-transparent.png" alt="Kleanly elephant">
+          <img class="footer-logo-name" src="brand_assets/kleanly-name-transparent.png" alt="Kleanly">
+        </a>
+        <p class="footer-desc">Professional cleaning for post-construction, end of tenancy, commercial & residential properties.<br>A spotless finish, every time.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="#" aria-label="Facebook">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a class="footer-social" href="#" aria-label="Instagram">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Post-Construction Cleaning</a></li>
+          <li><a href="#services">Commercial Cleaning</a></li>
+          <li><a href="#services">End of Tenancy Cleaning</a></li>
+          <li><a href="#services">Deep Cleaning</a></li>
+          <li><a href="#services">Other</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <p class="footer-contact-item">+61 7XXX XXX XXX</p>
+        <p class="footer-contact-item">hello@kleanly.com.au</p>
+        <p class="footer-contact-item">Mon–Sat: 7:00am – 8:00pm</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Kleanly. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  const mobBtn = document.getElementById('mobMenuBtn');
+  const mobNav = document.getElementById('mobNav');
+  mobBtn.addEventListener('click', () => {
+    mobBtn.classList.toggle('open');
+    mobNav.classList.toggle('open');
+  });
+  mobNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobBtn.classList.remove('open');
+      mobNav.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-r').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
