@@ -1297,6 +1297,25 @@
 
   document.querySelectorAll('.reveal, .reveal-r').forEach(el => revealObserver.observe(el));
 
+  // Circular favicon
+  const faviconImg = new Image();
+  faviconImg.onload = function() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64; canvas.height = 64;
+    const ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(32, 32, 32, 0, Math.PI * 2);
+    ctx.fillStyle = '#95DCCF';
+    ctx.fill();
+    ctx.clip();
+    ctx.drawImage(faviconImg, 0, 0, 64, 64);
+    const link = document.querySelector("link[rel='icon']") || document.createElement('link');
+    link.rel = 'icon';
+    link.href = canvas.toDataURL();
+    document.head.appendChild(link);
+  };
+  faviconImg.src = 'brand_assets/Elephant only.png';
+
   // Handle Web3Forms submission and redirect to custom thank-you page
   document.querySelectorAll('form[action="https://api.web3forms.com/submit"]').forEach(form => {
     form.addEventListener('submit', async function(e) {
