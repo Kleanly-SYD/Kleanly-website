@@ -812,7 +812,7 @@
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
           <input type="hidden" name="subject" value="New Quote Request — Kleanly">
-          <input type="hidden" name="redirect" value="https://kleanly-syd.github.io/Kleanly-website/thank-you.html">
+          <input type="hidden" name="redirect" value="false">
           <div class="hero-form-row">
             <div>
               <label class="form-label">First Name</label>
@@ -1274,6 +1274,31 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-r').forEach(el => revealObserver.observe(el));
+
+  // Handle Web3Forms submission and redirect to custom thank-you page
+  document.querySelectorAll('form[action="https://api.web3forms.com/submit"]').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form)
+        });
+        const json = await res.json();
+        if (json.success) {
+          window.location.href = 'thank-you.html';
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send My Request →'; }
+          alert('Something went wrong. Please try again.');
+        }
+      } catch(err) {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send My Request →'; }
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  });
 </script>
 </body>
 </html>
