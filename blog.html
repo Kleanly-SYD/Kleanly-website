@@ -140,17 +140,19 @@
     .article-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(70,113,143,0.08), 0 20px 48px rgba(70,113,143,0.12); }
 
     .article-card-img {
-      width: 100%; height: 200px; object-fit: cover;
-      background: var(--teal-light);
-      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 200px;
       position: relative; overflow: hidden;
     }
-    .article-card-img-placeholder {
-      width: 100%; height: 200px;
-      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(149,220,207,0.3) 100%);
-      display: flex; align-items: center; justify-content: center;
+    .article-card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .article-card-img-placeholder span { font-size: 48px; }
+    .article-card:hover .article-card-img img { transform: scale(1.05); }
+    .article-card-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,46,59,0.35) 0%, transparent 55%);
+      pointer-events: none;
+    }
 
     .article-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
     .article-cat {
@@ -279,174 +281,103 @@
 
     <div class="blog-grid">
 
-      <!-- Article 1 -->
       <a class="article-card" href="blog/end-of-tenancy-cleaning-tips-sydney.html">
-        <div class="article-card-img-placeholder"><span>🏠</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/apartment82/400/220" alt="End of tenancy cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">End of Tenancy</span>
           <h2 class="article-title">10 End of Tenancy Cleaning Tips to Get Your Bond Back</h2>
           <p class="article-excerpt">Moving out soon? These 10 tips will help you meet NSW inspection standards and maximise your chances of a full bond return.</p>
           <div class="article-meta">
-            <span class="article-date">1 January 2026</span>
+            <span class="article-date">1 April 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/post-construction-cleaning-guide-sydney.html">
-        <div class="article-card-img-placeholder"><span>🔨</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/construct47/400/220" alt="Post-construction cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Post-Construction</span>
           <h2 class="article-title">How to Clean After a Renovation: A Room-by-Room Guide</h2>
           <p class="article-excerpt">Construction dust gets everywhere. Here's how to tackle post-renovation cleanup properly so your space is move-in ready.</p>
           <div class="article-meta">
-            <span class="article-date">15 January 2026</span>
+            <span class="article-date">10 April 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/deep-clean-checklist-home-sydney.html">
-        <div class="article-card-img-placeholder"><span>✨</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/interior61/400/220" alt="Deep clean checklist" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">The Ultimate Deep Clean Checklist for Your Home</h2>
           <p class="article-excerpt">A deep clean goes beyond your regular routine. Follow this checklist to tackle the areas most people forget.</p>
           <div class="article-meta">
-            <span class="article-date">29 January 2026</span>
+            <span class="article-date">22 April 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
-      <!-- Article 4 -->
       <a class="article-card" href="blog/stain-odour-removal-guide-sydney.html">
-        <div class="article-card-img-placeholder"><span>🧹</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/laundry33/400/220" alt="Stain and odour removal" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Stain Removal</span>
           <h2 class="article-title">How to Remove Common Stains &amp; Odours at Home</h2>
           <p class="article-excerpt">Red wine on carpet, grease on upholstery, pet odours — here's what actually works on the stains most people give up on.</p>
           <div class="article-meta">
-            <span class="article-date">12 February 2026</span>
+            <span class="article-date">3 May 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
-      <!-- Article 5 -->
       <a class="article-card" href="blog/how-to-clean-before-moving-in-sydney.html">
-        <div class="article-card-img-placeholder"><span>🔑</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/moving19/400/220" alt="Cleaning before moving in" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Moving In</span>
           <h2 class="article-title">How to Clean a Property Before Moving In</h2>
           <p class="article-excerpt">Even a property that looks clean on inspection hides grime in appliances and cupboards. Here's what to tackle before you unpack.</p>
           <div class="article-meta">
-            <span class="article-date">26 February 2026</span>
+            <span class="article-date">14 May 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
-      <!-- Article 6 -->
       <a class="article-card" href="blog/commercial-cleaning-guide-sydney.html">
-        <div class="article-card-img-placeholder"><span>🏢</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/office74/400/220" alt="Commercial office cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Commercial Cleaning</span>
           <h2 class="article-title">How Often Should an Office Be Cleaned? A Commercial Guide</h2>
           <p class="article-excerpt">The right cleaning frequency depends on headcount, industry, and the surfaces in your space. Here's how to work it out.</p>
           <div class="article-meta">
-            <span class="article-date">12 March 2026</span>
+            <span class="article-date">26 May 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
-      <!-- Article 7 -->
       <a class="article-card" href="blog/mould-prevention-sydney-rentals.html">
-        <div class="article-card-img-placeholder"><span>💧</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/bathroom55/400/220" alt="Mould prevention bathroom" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">Mould Prevention in Sydney Rentals</h2>
           <p class="article-excerpt">Sydney's humidity makes mould a constant battle in rentals. Here's how to prevent it, clean it safely, and know your rights as a tenant.</p>
           <div class="article-meta">
-            <span class="article-date">26 March 2026</span>
+            <span class="article-date">7 June 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
-      <!-- Article 8 -->
       <a class="article-card" href="blog/end-of-lease-vs-regular-cleaning-sydney.html">
-        <div class="article-card-img-placeholder"><span>📋</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/keys28/400/220" alt="End of lease cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">End of Tenancy</span>
           <h2 class="article-title">End of Lease Cleaning vs Regular Cleaning — What's the Difference?</h2>
           <p class="article-excerpt">A regular fortnightly clean won't pass a final inspection. Here's exactly what distinguishes a bond clean — and why it matters.</p>
-          <div class="article-meta">
-            <span class="article-date">9 April 2026</span>
-            <span class="article-read">Read more →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="article-card" href="blog/how-to-clean-oven-sydney.html">
-        <div class="article-card-img-placeholder"><span>🍳</span></div>
-        <div class="article-card-body">
-          <span class="article-cat">Deep Cleaning</span>
-          <h2 class="article-title">How to Clean Your Oven Without Harsh Chemicals</h2>
-          <p class="article-excerpt">A step-by-step method using bicarbonate of soda and vinegar — no commercial oven sprays required, and no lingering fumes.</p>
-          <div class="article-meta">
-            <span class="article-date">23 April 2026</span>
-            <span class="article-read">Read more →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="article-card" href="blog/how-to-clean-grout-tiles-sydney.html">
-        <div class="article-card-img-placeholder"><span>🪣</span></div>
-        <div class="article-card-body">
-          <span class="article-cat">Deep Cleaning</span>
-          <h2 class="article-title">How to Clean Grout Without Scrubbing for Hours</h2>
-          <p class="article-excerpt">Four methods ranked by difficulty — from an effortless baking soda paste to an oxygen bleach soak that does the work for you.</p>
-          <div class="article-meta">
-            <span class="article-date">7 May 2026</span>
-            <span class="article-read">Read more →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="article-card" href="blog/spring-cleaning-checklist-sydney.html">
-        <div class="article-card-img-placeholder"><span>🌱</span></div>
-        <div class="article-card-body">
-          <span class="article-cat">Deep Cleaning</span>
-          <h2 class="article-title">Spring Cleaning Checklist for Sydney Homes</h2>
-          <p class="article-excerpt">A room-by-room checklist covering everything from rangehood filters to ceiling fans — with Sydney-specific priorities like mould and humidity.</p>
-          <div class="article-meta">
-            <span class="article-date">21 May 2026</span>
-            <span class="article-read">Read more →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="article-card" href="blog/remove-pet-hair-home-sydney.html">
-        <div class="article-card-img-placeholder"><span>🐾</span></div>
-        <div class="article-card-body">
-          <span class="article-cat">Deep Cleaning</span>
-          <h2 class="article-title">How to Remove Pet Hair From Every Surface in Your Home</h2>
-          <p class="article-excerpt">Carpet, upholstery, hard floors, bedding, clothes, and air vents — the right tool and technique for each surface.</p>
-          <div class="article-meta">
-            <span class="article-date">4 June 2026</span>
-            <span class="article-read">Read more →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="article-card" href="blog/carpet-stain-removal-guide-sydney.html">
-        <div class="article-card-img-placeholder"><span>🍷</span></div>
-        <div class="article-card-body">
-          <span class="article-cat">Stain Removal</span>
-          <h2 class="article-title">How to Remove Carpet Stains: A Step-by-Step Guide</h2>
-          <p class="article-excerpt">Universal rules first, then stain-by-stain: red wine, coffee, blood, pet urine, mud, grease, and ink — what works and what makes it worse.</p>
           <div class="article-meta">
             <span class="article-date">18 June 2026</span>
             <span class="article-read">Read more →</span>
@@ -454,66 +385,131 @@
         </div>
       </a>
 
+      <a class="article-card" href="blog/how-to-clean-oven-sydney.html">
+        <div class="article-card-img"><img src="https://picsum.photos/seed/kitchen91/400/220" alt="Oven cleaning" loading="lazy"></div>
+        <div class="article-card-body">
+          <span class="article-cat">Deep Cleaning</span>
+          <h2 class="article-title">How to Clean Your Oven Without Harsh Chemicals</h2>
+          <p class="article-excerpt">A step-by-step method using bicarbonate of soda and vinegar — no commercial oven sprays required, and no lingering fumes.</p>
+          <div class="article-meta">
+            <span class="article-date">28 June 2026</span>
+            <span class="article-read">Read more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="blog/how-to-clean-grout-tiles-sydney.html">
+        <div class="article-card-img"><img src="https://picsum.photos/seed/tiles66/400/220" alt="Grout and tile cleaning" loading="lazy"></div>
+        <div class="article-card-body">
+          <span class="article-cat">Deep Cleaning</span>
+          <h2 class="article-title">How to Clean Grout Without Scrubbing for Hours</h2>
+          <p class="article-excerpt">Four methods ranked by difficulty — from an effortless baking soda paste to an oxygen bleach soak that does the work for you.</p>
+          <div class="article-meta">
+            <span class="article-date">9 July 2026</span>
+            <span class="article-read">Read more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="blog/spring-cleaning-checklist-sydney.html">
+        <div class="article-card-img"><img src="https://picsum.photos/seed/springhome43/400/220" alt="Spring cleaning checklist" loading="lazy"></div>
+        <div class="article-card-body">
+          <span class="article-cat">Deep Cleaning</span>
+          <h2 class="article-title">Spring Cleaning Checklist for Sydney Homes</h2>
+          <p class="article-excerpt">A room-by-room checklist covering everything from rangehood filters to ceiling fans — with Sydney-specific priorities like mould and humidity.</p>
+          <div class="article-meta">
+            <span class="article-date">20 July 2026</span>
+            <span class="article-read">Read more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="blog/remove-pet-hair-home-sydney.html">
+        <div class="article-card-img"><img src="https://picsum.photos/seed/pethome37/400/220" alt="Pet hair removal" loading="lazy"></div>
+        <div class="article-card-body">
+          <span class="article-cat">Deep Cleaning</span>
+          <h2 class="article-title">How to Remove Pet Hair From Every Surface in Your Home</h2>
+          <p class="article-excerpt">Carpet, upholstery, hard floors, bedding, clothes, and air vents — the right tool and technique for each surface.</p>
+          <div class="article-meta">
+            <span class="article-date">31 July 2026</span>
+            <span class="article-read">Read more →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="article-card" href="blog/carpet-stain-removal-guide-sydney.html">
+        <div class="article-card-img"><img src="https://picsum.photos/seed/carpet52/400/220" alt="Carpet stain removal" loading="lazy"></div>
+        <div class="article-card-body">
+          <span class="article-cat">Stain Removal</span>
+          <h2 class="article-title">How to Remove Carpet Stains: A Step-by-Step Guide</h2>
+          <p class="article-excerpt">Universal rules first, then stain-by-stain: red wine, coffee, blood, pet urine, mud, grease, and ink — what works and what makes it worse.</p>
+          <div class="article-meta">
+            <span class="article-date">11 August 2026</span>
+            <span class="article-read">Read more →</span>
+          </div>
+        </div>
+      </a>
+
       <a class="article-card" href="blog/streak-free-window-cleaning-sydney.html">
-        <div class="article-card-img-placeholder"><span>🪟</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/windows79/400/220" alt="Streak-free window cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">How to Get Streak-Free Windows</h2>
           <p class="article-excerpt">The professional squeegee method versus the vinegar spray method — what not to use, and how to tackle tracks and fly screens.</p>
           <div class="article-meta">
-            <span class="article-date">2 July 2026</span>
+            <span class="article-date">21 August 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/declutter-and-deep-clean-sydney.html">
-        <div class="article-card-img-placeholder"><span>📦</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/organise14/400/220" alt="Declutter and deep clean" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">How to Declutter and Deep Clean at the Same Time</h2>
           <p class="article-excerpt">The three-container system and a three-phase method that gets both done in one pass — without creating twice the mess.</p>
           <div class="article-meta">
-            <span class="article-date">16 July 2026</span>
+            <span class="article-date">1 September 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/landlord-guide-end-of-tenancy-nsw.html">
-        <div class="article-card-img-placeholder"><span>🔑</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/property68/400/220" alt="Landlord end of tenancy guide" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">End of Tenancy</span>
           <h2 class="article-title">The Landlord's Guide to End of Tenancy Inspections in NSW</h2>
           <p class="article-excerpt">Fair wear and tear versus damage, ECR documentation, the final inspection checklist, and the most common bond claim mistakes landlords make.</p>
           <div class="article-meta">
-            <span class="article-date">30 July 2026</span>
+            <span class="article-date">13 September 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/how-to-clean-bbq-sydney.html">
-        <div class="article-card-img-placeholder"><span>🔥</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/outdoor88/400/220" alt="BBQ cleaning" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">How to Clean a BBQ Before Summer</h2>
           <p class="article-excerpt">A six-step method covering grill grates, the flatplate, burners, hood, grease tray, and gas line check — plus how to re-season for better cooking.</p>
           <div class="article-meta">
-            <span class="article-date">13 August 2026</span>
+            <span class="article-date">24 September 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
       </a>
 
       <a class="article-card" href="blog/cleaning-tips-busy-parents-sydney.html">
-        <div class="article-card-img-placeholder"><span>👨‍👩‍👧</span></div>
+        <div class="article-card-img"><img src="https://picsum.photos/seed/family22/400/220" alt="Cleaning tips for parents" loading="lazy"></div>
         <div class="article-card-body">
           <span class="article-cat">Deep Cleaning</span>
           <h2 class="article-title">Cleaning Tips for Busy Parents</h2>
           <p class="article-excerpt">Systems that actually work: the kitchen reset, zone cleaning instead of whole-house days, age-appropriate tasks for kids, and when to call in help.</p>
           <div class="article-meta">
-            <span class="article-date">27 August 2026</span>
+            <span class="article-date">5 October 2026</span>
             <span class="article-read">Read more →</span>
           </div>
         </div>
