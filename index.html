@@ -447,7 +447,7 @@
       margin-bottom: 40px; max-width: 400px;
     }
     .stats-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;
     }
     .stat-item {
       background: var(--white); border: 1px solid var(--border);
@@ -968,20 +968,16 @@
 
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">&gt;95<span>%</span></div>
-          <div class="stat-label">Client satisfaction rate</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">1000<span>+</span></div>
-          <div class="stat-label">Properties cleaned</div>
-        </div>
-        <div class="stat-item">
           <div class="stat-number">5<span>★</span></div>
           <div class="stat-label">Average review rating</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">3<span>+</span></div>
+          <div class="stat-number">2<span>+</span></div>
           <div class="stat-label">Years in service</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">300<span>+</span></div>
+          <div class="stat-label">Properties cleaned</div>
         </div>
       </div>
 
