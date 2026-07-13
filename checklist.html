@@ -228,6 +228,28 @@
     }
     .cl-item.on-req .cl-check svg path { stroke: var(--blue); }
 
+    /* Excluded items */
+    .cl-item-excluded {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 16px;
+      background: rgba(107,114,128,0.04);
+      border: 1px solid rgba(107,114,128,0.12);
+      border-radius: 8px;
+      font-size: 14px; color: var(--text-muted); line-height: 1.5;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cl-item-excluded:hover {
+      border-color: rgba(107,114,128,0.25);
+      box-shadow: 0 2px 8px rgba(107,114,128,0.08);
+    }
+    .cl-excluded-icon {
+      width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0;
+      background: rgba(107,114,128,0.1);
+      border: 1.5px solid rgba(107,114,128,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cl-excluded-icon svg { display: block; }
+
     /* Section note */
     .cl-section-note {
       font-size: 13px; color: var(--text-muted); margin-top: 10px; font-style: italic;
@@ -843,50 +865,50 @@
     <!-- Excluded Services -->
     <div class=\"cl-section\">
       <h2 class=\"cl-section-heading\">Excluded services</h2>
-      <p class=\"cl-section-note\" style=\"margin-bottom: 20px; font-style: normal; color: var(--text-body); font-size: 15px; line-height: 1.6;\">Due to WH&amp;S, liability risks and complexity, the services below are not offered by us.</p>
+      <p class=\"cl-section-note\">Due to WH&amp;S, liability risks and complexity, the services below are not offered by us.</p>
       <div class=\"cl-grid\">
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Chandeliers
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Light Bulbs
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Fireplaces
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Moving Heavy Furniture
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           AC Vents / Filters
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Grout &amp; Silicon Remediations
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Biohazards (Excessive Mould, Faeces, Blood)
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Odour Removal &amp; Remediation
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Removal of Pet Hair Embedded in Carpet Fibres
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           High-Reach Areas (Areas Not Reachable With A Small 3-Step Ladder)
         </div>
-        <div class=\"cl-item\" style=\"background: rgba(70,113,143,0.04); border-color: rgba(70,113,143,0.12);\">
-          <span class=\"cl-check\" style=\"background: rgba(70,113,143,0.1); border-color: rgba(70,113,143,0.2);\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 6l3 3 5-5\" stroke=\"#6b7280\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
+        <div class=\"cl-item-excluded\">
+          <span class=\"cl-excluded-icon\"><svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M2 2l8 8M10 2l-8 8\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>
           Floor Grouting
         </div>
       </div>
