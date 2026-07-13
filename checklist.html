@@ -323,6 +323,48 @@
     .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s ease; }
     .footer-legal a:hover { color: rgba(255,255,255,0.7); }
 
+    /* ── ADD-ONS PRICING ── */
+    .addon-grid {
+      background: #fff;
+      border: 1px solid rgba(70,113,143,0.1);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.07);
+      overflow: hidden;
+    }
+    .addon-grid-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px;
+      background: var(--base);
+      border-bottom: 1px solid rgba(70,113,143,0.1);
+    }
+    .addon-grid-header span {
+      font-size: 11px; font-weight: 600; color: var(--text-muted);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .addon-card {
+      display: flex; flex-direction: row; align-items: center;
+      justify-content: space-between; gap: 24px;
+      padding: 20px 24px;
+      border-bottom: 1px solid rgba(70,113,143,0.07);
+      transition: background 0.15s ease;
+    }
+    .addon-card:last-child { border-bottom: none; }
+    .addon-card:hover { background: rgba(149,220,207,0.04); }
+    .addon-card-body { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+    .addon-name {
+      font-size: 15px; font-weight: 500; color: var(--blue-deeper);
+      line-height: 1.3;
+    }
+    .addon-desc {
+      font-size: 13px; color: var(--text-muted); line-height: 1.55;
+      margin: 0;
+    }
+    .addon-price {
+      font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600;
+      color: var(--blue-deeper); white-space: nowrap; flex-shrink: 0;
+      letter-spacing: -0.01em; line-height: 1;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -528,6 +570,10 @@
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           Scrub mineral deposits &amp; mould
         </div>
+        <div class="cl-item">
+          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Grout scrubbed back to colour
+        </div>
       </div>
     </div>
 
@@ -706,41 +752,92 @@
     <!-- On Request -->
     <div class="cl-section">
       <h2 class="cl-section-heading">Optional add-ons</h2>
-      <div class="cl-grid">
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Carpet cleaning
+      <div class="addon-grid">
+        <div class="addon-grid-header">
+          <span>Extra</span>
+          <span>Fixed price inc. GST</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Exterior windows
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Carpet cleaning</span>
+            <p class="addon-desc">Steam clean per carpeted room or defined area.</p>
+          </div>
+          <span class="addon-price">$69 / area</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Balcony — vacuum &amp; mop floor, remove cobwebs, clean glass walls internally &amp; wipe railings
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Carpet cleaning Hallways / Stairs</span>
+            <p class="addon-desc">Steam clean hallways and staircase.</p>
+          </div>
+          <span class="addon-price">$45 flat</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Garage — vacuum &amp; sweep floor, remove cobwebs, dust lighting and power points
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Exterior windows</span>
+            <p class="addon-desc">Frames, sills and tracks — ground floor only.</p>
+          </div>
+          <span class="addon-price">$15 per window pane</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Wall washing
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Balcony</span>
+            <p class="addon-desc">Vacuum &amp; mop floor, remove cobwebs, clean glass walls internally &amp; wipe railings. Small up to 15 m², large 15–30 m².</p>
+          </div>
+          <span class="addon-price">$45 Small / $85 Large</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Blinds, shutters &amp; curtains
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Garage</span>
+            <p class="addon-desc">Sweep floor, remove cobwebs, dust lighting and power points.</p>
+          </div>
+          <span class="addon-price">$34 / car spot</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Deck / patio
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Wall washing</span>
+            <p class="addon-desc">Spot marks and full wall wash throughout. Priced for 1–3 bedroom properties.</p>
+          </div>
+          <span class="addon-price">$89</span>
         </div>
-        <div class="cl-item on-req">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#46718F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Sliding glass doors
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Blinds</span>
+            <p class="addon-desc">Wipe down per set. Vertical plastic blinds excluded.</p>
+          </div>
+          <span class="addon-price">$33 / set</span>
+        </div>
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Outdoor Pressure Wash</span>
+            <p class="addon-desc">Deep blast of patio pavers, alfresco tiling, or driveways up to 30m².</p>
+          </div>
+          <span class="addon-price">$160</span>
+        </div>
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Deck / patio</span>
+            <p class="addon-desc">Sweep and mop. Small up to 15 m², large 15–30 m².</p>
+          </div>
+          <span class="addon-price">$34 Small / $64 Large</span>
+        </div>
+
+        <div class="addon-card">
+          <div class="addon-card-body">
+            <span class="addon-name">Sliding glass doors</span>
+            <p class="addon-desc">Tracks, frames and handles. One set included in every clean.</p>
+          </div>
+          <span class="addon-price">$34 / extra set</span>
         </div>
       </div>
-      <p class="cl-section-note">Add-ons are priced separately. <a href="pricing.html" style="color:var(--blue);font-weight:600;text-decoration:none;border-bottom:1px solid var(--teal);">See pricing →</a></p>
     </div>
 
   </div>
