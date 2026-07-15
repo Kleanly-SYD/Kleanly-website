@@ -875,6 +875,7 @@
           <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
           <input type="hidden" name="subject" value="New Quote Request — Kleanly">
           <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="ref" value="">
           <div class="hero-form-row">
             <div>
               <label class="form-label">First Name</label>
@@ -1190,6 +1191,7 @@
         <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
         <input type="hidden" name="subject" value="New Quote Request — Kleanly">
         <input type="hidden" name="redirect" value="https://kleanly-syd.github.io/Kleanly-website/thank-you.html">
+        <input type="hidden" name="ref" value="">
         <div class="form-row">
           <div>
             <label class="form-label">First Name</label>
@@ -1340,6 +1342,21 @@
     document.head.appendChild(link);
   };
   faviconImg.src = 'brand_assets/Elephant only.png';
+
+  // Capture ?ref= lead source, persist it across page views, and fill the hidden form field
+  (function() {
+    const urlRef = new URLSearchParams(window.location.search).get('ref');
+    if (urlRef) {
+      try { localStorage.setItem('kleanly_ref', urlRef); } catch (e) {}
+    }
+    let ref = urlRef;
+    if (!ref) {
+      try { ref = localStorage.getItem('kleanly_ref'); } catch (e) {}
+    }
+    if (ref) {
+      document.querySelectorAll('input[name="ref"]').forEach(input => { input.value = ref; });
+    }
+  })();
 
   // Handle Web3Forms submission and redirect to custom thank-you page
   document.querySelectorAll('form[action="https://api.web3forms.com/submit"]').forEach(form => {
