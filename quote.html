@@ -762,6 +762,7 @@
       <button type="button" class="service-pill-btn selected" data-service="end-of-tenancy">End of Tenancy</button>
       <button type="button" class="service-pill-btn" data-service="post-construction">Post-Construction</button>
       <button type="button" class="service-pill-btn" data-service="commercial">Commercial</button>
+      <button type="button" class="service-pill-btn" data-service="other">Other</button>
     </div>
   </div>
 </section>
@@ -1137,7 +1138,7 @@
   updateSummary();
 
   // Service type selector — only End of Tenancy has a bed/bath calculator;
-  // the other two are custom-quoted, same pattern as the 5+ bedroom fallback.
+  // the other three are custom-quoted, same pattern as the 5+ bedroom fallback.
   const SERVICE_COPY = {
     'post-construction': {
       title: 'Post-Construction Cleaning',
@@ -1146,6 +1147,10 @@
     commercial: {
       title: 'Commercial Cleaning',
       text: "Commercial quotes are tailored to your space and schedule — get in touch with a few details and we'll come back to you with a fixed-price quote."
+    },
+    other: {
+      title: 'Other',
+      text: "Not sure which service fits? Tell us a bit about what you need and we'll come back to you with a fixed-price quote."
     }
   };
 
