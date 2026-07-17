@@ -549,6 +549,10 @@
     }
     .quote-h1 em { font-style: normal; color: var(--blue); }
     .quote-sub { font-size: 16px; color: var(--text-body); line-height: 1.7; }
+    @media (min-width: 820px) {
+      .quote-intro { max-width: 800px; }
+      .quote-sub { white-space: nowrap; }
+    }
 
     .service-select { display: flex; justify-content: center; gap: 8px; margin-top: 28px; flex-wrap: wrap; }
     .service-pill-btn {
