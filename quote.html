@@ -12,17 +12,17 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cleaning Prices Sydney | Kleanly Fixed Price Cleaning</title>
-  <meta name="description" content="Transparent fixed pricing for end of tenancy, post-construction and commercial cleaning in Sydney. No hidden fees, no surprise add-ons. From $380.">
-  <meta property="og:title" content="Cleaning Prices Sydney | Kleanly">
-  <meta property="og:description" content="Fixed pricing for end of tenancy, post-construction and commercial cleaning in Sydney. Prices from $380.">
+  <title>Instant Quote Calculator | Kleanly</title>
+  <meta name="description" content="Get an instant fixed-price cleaning estimate. Select your property size and add-ons for a live quote in seconds.">
+  <meta property="og:title" content="Instant Quote Calculator | Kleanly">
+  <meta property="og:description" content="Get an instant fixed-price cleaning estimate. Select your property size and add-ons for a live quote in seconds.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.kleanly.com.au/pricing.html">
+  <meta property="og:url" content="https://www.kleanly.com.au/quote.html">
   <meta property="og:image" content="https://www.kleanly.com.au/brand_assets/Elephant only.png">
-  <link rel="canonical" href="https://www.kleanly.com.au/pricing.html">
+  <link rel="canonical" href="https://www.kleanly.com.au/quote.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cleaning Prices Sydney | Kleanly Fixed Price Cleaning">
-  <meta name="twitter:description" content="Fixed pricing for end of tenancy, post-construction and commercial cleaning in Sydney. Prices from $380.">
+  <meta name="twitter:title" content="Instant Quote Calculator | Kleanly">
+  <meta name="twitter:description" content="Get an instant fixed-price cleaning estimate. Select your property size and add-ons for a live quote in seconds.">
   <meta name="twitter:image" content="https://www.kleanly.com.au/brand_assets/Elephant only.png">
   <link rel="icon" type="image/png" href="brand_assets/favicon-round.png">
   <link rel="apple-touch-icon" href="brand_assets/favicon-round.png">
@@ -533,6 +533,166 @@
       .pricing-table-head, .pricing-row { padding: 14px 18px; }
       .pricing-price { font-size: 18px; }
     }
+
+    /* ── QUOTE TOOL ── */
+    #quote-hero { padding: 112px 32px 24px; }
+    .quote-intro { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+    .quote-label {
+      font-size: 14px; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .quote-label::before, .quote-label::after { content: ''; width: 24px; height: 2px; background: var(--teal); }
+    .quote-h1 {
+      font-size: clamp(32px, 4vw, 50px); font-weight: 800; color: var(--blue-deeper);
+      letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 16px;
+    }
+    .quote-h1 em { font-style: normal; color: var(--blue); }
+    .quote-sub { font-size: 16px; color: var(--text-body); line-height: 1.7; }
+
+    .service-select { display: flex; justify-content: center; gap: 8px; margin-top: 28px; flex-wrap: wrap; }
+    .service-pill-btn {
+      border: 1.5px solid var(--border); background: #fff; border-radius: 100px;
+      padding: 10px 20px; font-family: 'Poppins', sans-serif; font-size: 13.5px; font-weight: 600;
+      color: var(--text-body); cursor: pointer; transition: all 0.15s ease;
+    }
+    .service-pill-btn:hover { border-color: var(--teal); }
+    .service-pill-btn.selected { background: var(--blue-deeper); border-color: var(--blue-deeper); color: #fff; }
+    .service-pill-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+    .custom-quote-panel { max-width: 1200px; margin: 0 auto; }
+    .custom-quote-card {
+      max-width: 560px; margin: 0 auto; text-align: center;
+    }
+    .custom-quote-card .quote-section-title { font-size: 22px; margin-bottom: 10px; }
+    .custom-quote-card .quote-section-hint { margin-bottom: 26px; }
+    .custom-quote-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+      padding: 14px 28px; border-radius: 8px; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(149,220,207,0.35);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .custom-quote-cta:hover { transform: translateY(-1px); background: var(--teal-dark); box-shadow: 0 8px 24px rgba(149,220,207,0.45); }
+
+    #quote-builder { padding: 0 32px 96px; }
+    .quote-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: start; }
+
+    .quote-section {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 32px; box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.06);
+      margin-bottom: 24px;
+    }
+    .quote-section-title { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: var(--blue-deeper); margin-bottom: 4px; }
+    .quote-section-hint { font-size: 13.5px; color: var(--text-muted); margin-bottom: 22px; }
+
+    .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .property-card {
+      border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 12px;
+      background: var(--base); cursor: pointer; text-align: left;
+      display: flex; flex-direction: column; gap: 4px;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .property-card:hover { border-color: var(--teal); transform: translateY(-1px); }
+    .property-card:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .property-card.selected { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 2px rgba(70,113,143,0.15); }
+    .property-card .pc-name { font-size: 13.5px; font-weight: 600; color: var(--blue-deeper); line-height: 1.3; }
+    .property-card .pc-price { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--blue); font-variant-numeric: tabular-nums; }
+    .property-card.quote-only .pc-price { font-size: 12.5px; font-weight: 600; color: var(--text-muted); }
+
+    .addon-row-list { display: flex; flex-direction: column; }
+    .addon-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 0; border-bottom: 1px solid rgba(70,113,143,0.07);
+    }
+    .addon-row:last-child { border-bottom: none; }
+    .addon-row-info { flex: 1; min-width: 0; }
+    .addon-row-name { font-size: 14.5px; font-weight: 500; color: var(--blue-deeper); }
+    .addon-row-name .addon-qualifier { font-weight: 400; color: var(--text-muted); font-size: 12.5px; }
+    .addon-row-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
+    .addon-row-control { flex-shrink: 0; display: flex; align-items: center; gap: 8px; }
+
+    .addon-toggle {
+      display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none;
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--blue-deeper);
+    }
+    .addon-toggle input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .addon-toggle .toggle-box {
+      width: 20px; height: 20px; border-radius: 5px; border: 1.5px solid rgba(70,113,143,0.3);
+      display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; background: #fff;
+    }
+    .addon-toggle input:checked + .toggle-box { background: var(--teal); border-color: var(--teal); }
+    .addon-toggle input:focus-visible + .toggle-box { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .addon-toggle .toggle-box svg { opacity: 0; transition: opacity 0.1s ease; }
+    .addon-toggle input:checked + .toggle-box svg { opacity: 1; }
+
+    .qty-stepper { display: flex; align-items: center; border: 1.5px solid rgba(70,113,143,0.15); border-radius: 8px; overflow: hidden; }
+    .qty-btn {
+      width: 28px; height: 28px; border: none; background: var(--base); color: var(--blue-deeper);
+      font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s ease;
+    }
+    .qty-btn:hover { background: rgba(149,220,207,0.25); }
+    .qty-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .qty-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+    .qty-value { width: 28px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    .size-group { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .size-pill {
+      border: 1.5px solid rgba(70,113,143,0.15); background: #fff; border-radius: 100px;
+      padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: pointer;
+      transition: all 0.15s ease; white-space: nowrap; font-family: 'Inter', sans-serif;
+    }
+    .size-pill:hover { border-color: var(--teal); }
+    .size-pill:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .size-pill.selected { background: var(--blue-deeper); border-color: var(--blue-deeper); color: #fff; }
+
+    .quote-summary { position: sticky; top: 96px; }
+    .summary-line { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; color: var(--text-body); padding: 8px 0; }
+    .summary-line.empty { color: var(--text-muted); font-style: italic; }
+    .summary-line-price { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--blue-deeper); white-space: nowrap; }
+    .summary-divider { border-top: 1px solid var(--border); margin: 12px 0; }
+    .summary-total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+    .summary-total-label { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; color: var(--blue-deeper); }
+    .summary-total-price { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 800; color: var(--blue-deeper); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .summary-note { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+    .quote-form { display: flex; flex-direction: column; gap: 12px; }
+    .quote-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .quote-input {
+      width: 100%; border: 1.5px solid rgba(70,113,143,0.15); border-radius: 8px;
+      padding: 11px 14px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--blue-deeper);
+      background: #fff; transition: border-color 0.15s ease;
+    }
+    .quote-input:focus { outline: none; border-color: var(--teal); }
+    .quote-submit {
+      width: 100%; background: var(--teal); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px;
+      padding: 14px; border-radius: 8px; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 4px 16px rgba(149,220,207,0.35);
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .quote-submit:hover:not(:disabled) { transform: translateY(-1px); background: var(--teal-dark); }
+    .quote-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+    .quote-submit:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .quote-grid { grid-template-columns: 1fr; }
+      .quote-summary { position: static; }
+    }
+    @media (max-width: 640px) {
+      #quote-hero { padding: 96px 20px 16px; }
+      #quote-builder { padding: 0 20px 64px; }
+      .quote-section { padding: 22px; }
+      .property-grid { grid-template-columns: repeat(2, 1fr); }
+      .addon-row { flex-wrap: wrap; }
+      .addon-row-control { width: 100%; justify-content: flex-start; margin-top: 4px; }
+      .size-group { justify-content: flex-start; }
+      .quote-form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -547,11 +707,11 @@
     <nav>
       <a class="nav-link" href="index.html#why">Why Us</a>
       <a class="nav-link" href="index.html#process">Process</a>
-      <a class="nav-link active" href="pricing.html">Pricing</a>
+      <a class="nav-link" href="pricing.html">Pricing</a>
       <a class="nav-link" href="checklist.html">Checklist</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-link" href="blog.html">Blog</a>
-      <a class="btn-primary" href="quote.html">Get a Quote</a>
+      <a class="btn-primary" href="#quote-builder">Get a Quote</a>
     </nav>
     <button class="mob-menu-btn" id="mobMenuBtn" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -560,313 +720,93 @@
   <div class="mob-nav" id="mobNav">
     <a class="nav-link" href="index.html#why">Why Us</a>
     <a class="nav-link" href="index.html#process">Process</a>
-    <a class="nav-link active" href="pricing.html">Pricing</a>
+    <a class="nav-link" href="pricing.html">Pricing</a>
     <a class="nav-link" href="checklist.html">Checklist</a>
     <a class="nav-link" href="faq.html">FAQ</a>
     <a class="nav-link" href="blog.html">Blog</a>
-    <a class="btn-primary" href="quote.html">Get a Quote</a>
+    <a class="btn-primary" href="#quote-builder">Get a Quote</a>
   </div>
 </header>
 
-<!-- PRICING HERO -->
-<section id="pricing-hero">
-
-  <div class="pricing-left">
-    <p class="pricing-label">End of Tenancy Fixed Pricing · Inc. GST</p>
-    <h1 class="pricing-h1">
-      A small price for<br>
-      <em>your full deposit back.</em>
-    </h1>
-    <p class="pricing-sub">
-      Your price is fixed when you book — no surprise add-ons, ever.
-    </p>
-    <p class="pricing-sub" style="margin-top:4px;">
-      Our End of Tenancy service uses the exact same rigorous approved checklist every time. Whether you're moving out to get your bond back or ensuring your property meets inspection standards, you get the absolute highest standard of clean.
-    </p>
-    <ul class="pricing-checklist">
-      <li>
-        <span class="check-icon">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#95DCCF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        Full landlord &amp; letting agent checklist
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#95DCCF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        Oven &amp; appliances included — never an extra
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#95DCCF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        Before &amp; after photos of every room
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#95DCCF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        Confirmation call 24 hours before
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#95DCCF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        No call-out fee · typical clean 3–8 hours
-      </li>
-    </ul>
-    <a class="pricing-cta" href="index.html#contact">
-      Book at this price
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-    </a>
-  </div>
-
-  <div class="pricing-right">
-    <div class="pricing-table-wrap">
-      <div class="pricing-table-head">
-        <span>Property</span>
-        <span>Fixed Price inc. GST</span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">Studio / 1 bed · 1 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$380</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">2 bed · 1 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$470</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">2 bed · 2 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$580</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">3 bed · 1 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$560</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">3 bed · 2 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$670</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">3 bed · 3 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$780</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">4 bed · 1 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$670</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">4 bed · 2 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$790</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">4 bed · 3 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$910</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">5 bed · 3 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$1,030</span>
-        </span>
-      </div>
-      <div class="pricing-row">
-        <span class="pricing-property">5 bed · 4 bath</span>
-        <span class="pricing-amount">
-          <span class="pricing-from">from</span>
-          <span class="pricing-price">$1,150</span>
-        </span>
-      </div>
-      <div class="pricing-row call-quote">
-        <span class="pricing-property">6+ bedrooms</span>
-        <a class="pricing-quote-link" href="index.html#contact">Call for quote</a>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ADD-ONS -->
-<section id="addons">
-  <div class="addons-inner">
-    <p class="addons-page-label"><span>→</span> Add-ons</p>
-    <h2 class="addons-h2">Common extras</h2>
-    <p class="addons-sub">All add-on prices are fixed — no surprises when you book.</p>
-    <div class="addon-table-wrap">
-      <table class="addon-table">
-        <thead>
-          <tr>
-            <th>Extra</th>
-            <th class="addon-price-col">Fixed price inc. GST</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="addon-name">Carpet cleaning <span class="addon-qualifier">(per area)</span></span>
-              <p class="addon-desc">Steam clean per carpeted room or defined area.</p>
-            </td>
-            <td class="addon-price">$69</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Carpet cleaning Hallways &amp; Stairs</span>
-              <p class="addon-desc">Steam clean hallways and staircase.</p>
-            </td>
-            <td class="addon-price">$45</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Exterior windows <span class="addon-qualifier">(per window frame/set)</span></span>
-              <p class="addon-desc">Frames, sills and tracks — ground floor only.</p>
-            </td>
-            <td class="addon-price">$15</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Balcony <span class="addon-qualifier">(Small: 0–15m² / Large: 15–30m²)</span></span>
-              <p class="addon-desc">Vacuum &amp; mop floor, remove cobwebs, clean glass walls internally &amp; wipe railings.</p>
-            </td>
-            <td class="addon-price">$45<span class="sep">/</span>$85</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Garage <span class="addon-qualifier">(per car spot)</span></span>
-              <p class="addon-desc">Sweep floor, remove cobwebs, dust lighting and power points.</p>
-            </td>
-            <td class="addon-price">$34</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Spot Wall Washing</span>
-              <p class="addon-desc">Scuffs/marks around light switches and high-traffic areas.</p>
-            </td>
-            <td class="addon-price">$89</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Full wall washing <span class="addon-qualifier">(per room)</span></span>
-              <p class="addon-desc">Full wall wash, floor to ceiling.</p>
-            </td>
-            <td class="addon-price">$50</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Blinds <span class="addon-qualifier">(per set)</span></span>
-              <p class="addon-desc">Wipe down per set. Vertical plastic blinds excluded.</p>
-            </td>
-            <td class="addon-price">$33</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Outdoor Pressure Wash</span>
-              <p class="addon-desc">Deep blast of patio pavers, alfresco tiling, or driveways up to 30m².</p>
-            </td>
-            <td class="addon-price">$160</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Deck &amp; patio <span class="addon-qualifier">(Small: 0–15m² / Large: 15–30m²)</span></span>
-              <p class="addon-desc">Sweep and mop. Note: does not include pressure washing or heavy stain removal.</p>
-            </td>
-            <td class="addon-price">$45<span class="sep">/</span>$85</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Sliding glass doors <span class="addon-qualifier">(per extra set)</span></span>
-              <p class="addon-desc">Tracks, frames and handles. One set included in every clean.</p>
-            </td>
-            <td class="addon-price">$34</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="addon-footnote">Not sure which add-ons you need? <a href="index.html#contact">Get a free quote →</a></p>
-  </div>
-</section>
-
-<!-- OTHER SERVICES -->
-<section id="other-services">
-  <div class="other-services-inner">
-    <div class="other-services-header">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Other Services</span>
-      </div>
-      <h2 class="section-h2">Every clean, custom-quoted.</h2>
-      <p class="section-sub">Our other services are priced to your specific property and scope. Get in touch for a tailored quote within a few hours.</p>
-    </div>
-    <div class="other-services-grid">
-      <div class="other-card">
-        <div class="other-card-icon">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        </div>
-        <div class="other-card-title">Post-Construction Clean</div>
-        <p class="other-card-desc">Newly built or renovated? We remove dust, debris, paint splatters, and construction residue so your property is move-in ready from day one.</p>
-        <a class="other-card-cta" href="index.html#contact">Get a quote →</a>
-      </div>
-      <div class="other-card">
-        <div class="other-card-icon">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        </div>
-        <div class="other-card-title">Commercial Clean</div>
-        <p class="other-card-desc">Offices, retail spaces, and corporate environments. Flexible scheduling around your business hours with no disruption to your operations.</p>
-        <a class="other-card-cta" href="index.html#contact">Get a quote →</a>
-      </div>
-      <div class="other-card">
-        <div class="other-card-icon">
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#46718F" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-        </div>
-        <div class="other-card-title">Other</div>
-        <p class="other-card-desc">Have something specific in mind? We're happy to discuss any cleaning requirement. Get in touch and we'll put together a tailored quote for you.</p>
-        <a class="other-card-cta" href="index.html#contact">Get a quote →</a>
-      </div>
+<!-- QUOTE HERO -->
+<section id="quote-hero">
+  <div class="quote-intro">
+    <p class="quote-label">Instant Estimate</p>
+    <h1 class="quote-h1">Build your <em>quote</em>.</h1>
+    <p class="quote-sub">Select your property size and any add-ons — see a live, fixed-price estimate as you go.</p>
+    <div class="service-select" id="serviceSelect">
+      <button type="button" class="service-pill-btn selected" data-service="end-of-tenancy">End of Tenancy</button>
+      <button type="button" class="service-pill-btn" data-service="post-construction">Post-Construction</button>
+      <button type="button" class="service-pill-btn" data-service="commercial">Commercial</button>
     </div>
   </div>
 </section>
 
-<!-- CTA STRIP -->
-<section id="cta-strip">
-  <div class="cta-strip-inner">
-    <h2 class="cta-strip-h2">Ready to get started?</h2>
-    <p class="cta-strip-sub">Book your end of tenancy clean today and secure your full deposit back. We're available Mon–Sat, 7am–8pm.</p>
-    <div class="cta-strip-btns">
-      <a class="btn-dark" href="tel:+61459944679">
-        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        Call Now
+<!-- QUOTE BUILDER -->
+<section id="quote-builder">
+  <div class="quote-grid" id="quoteGrid">
+    <div class="quote-main">
+      <div class="quote-section">
+        <h2 class="quote-section-title">1. Property size</h2>
+        <p class="quote-section-hint">Pick the closest match to your property.</p>
+        <div class="property-grid" id="propertyGrid"></div>
+      </div>
+
+      <div class="quote-section">
+        <h2 class="quote-section-title">2. Add-ons</h2>
+        <p class="quote-section-hint">Optional extras — only pay for what you need.</p>
+        <div class="addon-row-list" id="addonList"></div>
+      </div>
+    </div>
+
+    <div class="quote-summary">
+      <div class="quote-section">
+        <h2 class="quote-section-title">Your estimate</h2>
+        <div id="summaryLines"></div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+          <span class="summary-total-label">Total</span>
+          <span class="summary-total-price" id="summaryTotal">—</span>
+        </div>
+        <p class="summary-note" id="summaryNote">Select a property size to see your estimate. Final price confirmed after we review your property details.</p>
+
+        <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="70cebfb2-3a2a-4482-8fe9-b036e5c28b5b">
+          <input type="hidden" name="subject" value="New Quote Tool Request — Kleanly">
+          <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="ref" value="">
+          <input type="hidden" name="quote_summary" id="quoteSummaryField" value="">
+          <input type="hidden" name="estimated_total" id="quoteTotalField" value="">
+          <div class="quote-form">
+            <div class="quote-form-row">
+              <input class="quote-input" type="text" name="first_name" placeholder="First name" required>
+              <input class="quote-input" type="text" name="last_name" placeholder="Last name" required>
+            </div>
+            <input class="quote-input" type="email" name="email" placeholder="Email address" required>
+            <input class="quote-input" type="tel" name="phone" placeholder="Phone number" required>
+
+            <button class="quote-submit" type="submit" id="quoteSubmitBtn" disabled>
+              <span id="quoteSubmitLabel">Email Me This Quote</span>
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="custom-quote-panel" id="customQuotePanel" style="display:none;">
+    <div class="quote-section custom-quote-card">
+      <h2 class="quote-section-title" id="customQuoteTitle">Post-Construction Cleaning</h2>
+      <p class="quote-section-hint" id="customQuoteText">Every post-construction job is different — get in touch with a few details about your project and we'll come back to you with a fixed-price quote.</p>
+      <a class="custom-quote-cta" id="customQuoteCta" href="index.html#contact">
+        Get a Custom Quote
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
-      <a class="btn-outline" href="index.html#contact">Send an Enquiry</a>
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -940,5 +880,260 @@
     });
   });
 </script>
+
+<script>
+  const PROPERTIES = [
+    { id: 'studio1', name: 'Studio / 1 bed · 1 bath', price: 380 },
+    { id: '2b1b', name: '2 bed · 1 bath', price: 470 },
+    { id: '2b2b', name: '2 bed · 2 bath', price: 580 },
+    { id: '3b1b', name: '3 bed · 1 bath', price: 560 },
+    { id: '3b2b', name: '3 bed · 2 bath', price: 670 },
+    { id: '3b3b', name: '3 bed · 3 bath', price: 780 },
+    { id: '4b1b', name: '4 bed · 1 bath', price: 670 },
+    { id: '4b2b', name: '4 bed · 2 bath', price: 790 },
+    { id: '4b3b', name: '4 bed · 3 bath', price: 910 },
+    { id: '5b3b', name: '5 bed · 3 bath', price: 1030 },
+    { id: '5b4b', name: '5 bed · 4 bath', price: 1150 },
+    { id: '6plus', name: '6+ bedrooms', price: null }
+  ];
+
+  const ADDONS = [
+    { id: 'carpet', name: 'Carpet cleaning', qualifier: 'per area', desc: 'Steam clean per carpeted room or defined area.', type: 'qty', price: 69 },
+    { id: 'carpetHall', name: 'Carpet cleaning Hallways &amp; Stairs', qualifier: null, desc: 'Steam clean hallways and staircase.', type: 'flat', price: 45 },
+    { id: 'extWindows', name: 'Exterior windows', qualifier: 'per window frame/set', desc: 'Frames, sills and tracks — ground floor only.', type: 'qty', price: 15 },
+    { id: 'balcony', name: 'Balcony', qualifier: 'Small: 0–15m² / Large: 15–30m²', desc: 'Vacuum &amp; mop floor, remove cobwebs, clean glass walls internally &amp; wipe railings.', type: 'size', priceSmall: 45, priceLarge: 85 },
+    { id: 'garage', name: 'Garage', qualifier: 'per car spot', desc: 'Sweep floor, remove cobwebs, dust lighting and power points.', type: 'qty', price: 34 },
+    { id: 'spotWall', name: 'Spot Wall Washing', qualifier: null, desc: 'Scuffs/marks around light switches and high-traffic areas.', type: 'flat', price: 89 },
+    { id: 'fullWall', name: 'Full wall washing', qualifier: 'per room', desc: 'Full wall wash, floor to ceiling.', type: 'qty', price: 50 },
+    { id: 'blinds', name: 'Blinds', qualifier: 'per set', desc: 'Wipe down per set. Vertical plastic blinds excluded.', type: 'qty', price: 33 },
+    { id: 'pressureWash', name: 'Outdoor Pressure Wash', qualifier: null, desc: 'Deep blast of patio pavers, alfresco tiling, or driveways up to 30m².', type: 'flat', price: 160 },
+    { id: 'deck', name: 'Deck &amp; patio', qualifier: 'Small: 0–15m² / Large: 15–30m²', desc: 'Sweep and mop. Note: does not include pressure washing or heavy stain removal.', type: 'size', priceSmall: 45, priceLarge: 85 },
+    { id: 'slidingDoors', name: 'Sliding glass doors', qualifier: 'per extra set', desc: 'Tracks, frames and handles. One set included in every clean.', type: 'qty', price: 34 }
+  ];
+
+  const state = { property: null, addons: {} };
+
+  function fmt(n) { return '$' + n.toLocaleString('en-AU'); }
+
+  function renderProperties() {
+    const grid = document.getElementById('propertyGrid');
+    grid.innerHTML = PROPERTIES.map(p => `
+      <button type="button" class="property-card${p.price === null ? ' quote-only' : ''}" data-id="${p.id}">
+        <span class="pc-name">${p.name}</span>
+        <span class="pc-price">${p.price === null ? 'Call for quote' : 'from ' + fmt(p.price)}</span>
+      </button>
+    `).join('');
+    grid.querySelectorAll('.property-card').forEach(card => {
+      card.addEventListener('click', () => {
+        state.property = card.dataset.id;
+        grid.querySelectorAll('.property-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        updateSummary();
+      });
+    });
+  }
+
+  function renderAddons() {
+    const list = document.getElementById('addonList');
+    list.innerHTML = ADDONS.map(a => {
+      let control = '';
+      if (a.type === 'flat') {
+        control = `
+          <label class="addon-toggle">
+            <input type="checkbox" data-addon="${a.id}" data-type="flat">
+            <span class="toggle-box"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2e3b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            ${fmt(a.price)}
+          </label>`;
+      } else if (a.type === 'qty') {
+        control = `
+          <div class="qty-stepper">
+            <button type="button" class="qty-btn" data-action="dec" data-addon="${a.id}" aria-label="Decrease">−</button>
+            <span class="qty-value" id="qty-${a.id}">0</span>
+            <button type="button" class="qty-btn" data-action="inc" data-addon="${a.id}" aria-label="Increase">+</button>
+          </div>`;
+      } else if (a.type === 'size') {
+        control = `
+          <div class="size-group" data-addon="${a.id}">
+            <button type="button" class="size-pill selected" data-size="none">None</button>
+            <button type="button" class="size-pill" data-size="small">Small ${fmt(a.priceSmall)}</button>
+            <button type="button" class="size-pill" data-size="large">Large ${fmt(a.priceLarge)}</button>
+          </div>`;
+      }
+      return `
+        <div class="addon-row">
+          <div class="addon-row-info">
+            <div class="addon-row-name">${a.name}${a.qualifier ? ` <span class="addon-qualifier">(${a.qualifier})</span>` : ''}</div>
+            <div class="addon-row-desc">${a.desc}</div>
+          </div>
+          <div class="addon-row-control">${control}</div>
+        </div>`;
+    }).join('');
+
+    list.querySelectorAll('input[type="checkbox"][data-type="flat"]').forEach(cb => {
+      cb.addEventListener('change', () => {
+        state.addons[cb.dataset.addon] = cb.checked;
+        updateSummary();
+      });
+    });
+    list.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.addon;
+        const cur = state.addons[id] || 0;
+        const next = btn.dataset.action === 'inc' ? Math.min(cur + 1, 20) : Math.max(cur - 1, 0);
+        state.addons[id] = next;
+        document.getElementById('qty-' + id).textContent = next;
+        updateSummary();
+      });
+    });
+    list.querySelectorAll('.size-group').forEach(group => {
+      const id = group.dataset.addon;
+      group.querySelectorAll('.size-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          const size = pill.dataset.size;
+          state.addons[id] = size === 'none' ? null : size;
+          group.querySelectorAll('.size-pill').forEach(p => p.classList.remove('selected'));
+          pill.classList.add('selected');
+          updateSummary();
+        });
+      });
+    });
+  }
+
+  function updateSummary() {
+    const summaryLines = document.getElementById('summaryLines');
+    const totalEl = document.getElementById('summaryTotal');
+    const noteEl = document.getElementById('summaryNote');
+    const submitBtn = document.getElementById('quoteSubmitBtn');
+
+    let lines = [];
+    let total = 0;
+    let hasCustomQuote = false;
+
+    const prop = PROPERTIES.find(p => p.id === state.property);
+    if (prop) {
+      if (prop.price === null) {
+        hasCustomQuote = true;
+        lines.push({ label: prop.name, price: null });
+      } else {
+        total += prop.price;
+        lines.push({ label: prop.name, price: prop.price });
+      }
+    }
+
+    ADDONS.forEach(a => {
+      const v = state.addons[a.id];
+      if (a.type === 'flat' && v) {
+        total += a.price;
+        lines.push({ label: a.name.replace('&amp;', '&'), price: a.price });
+      } else if (a.type === 'qty' && v > 0) {
+        const sub = a.price * v;
+        total += sub;
+        lines.push({ label: `${a.name.replace('&amp;', '&')} × ${v}`, price: sub });
+      } else if (a.type === 'size' && v) {
+        const p = v === 'small' ? a.priceSmall : a.priceLarge;
+        total += p;
+        lines.push({ label: `${a.name.replace('&amp;', '&')} (${v === 'small' ? 'Small' : 'Large'})`, price: p });
+      }
+    });
+
+    if (!prop) {
+      summaryLines.innerHTML = `<div class="summary-line empty">Select a property size to begin</div>`;
+    } else {
+      summaryLines.innerHTML = lines.map(l => `
+        <div class="summary-line">
+          <span>${l.label}</span>
+          <span class="summary-line-price">${l.price === null ? '—' : fmt(l.price)}</span>
+        </div>`).join('');
+    }
+
+    if (hasCustomQuote) {
+      totalEl.textContent = 'Custom';
+      noteEl.textContent = "Properties with 6+ bedrooms need a custom quote — send your details and we'll call you with a fixed price.";
+    } else if (prop) {
+      totalEl.textContent = fmt(total);
+      noteEl.textContent = 'Estimate only — final price confirmed after we review your property details.';
+    } else {
+      totalEl.textContent = '—';
+      noteEl.textContent = 'Select a property size to see your estimate. Final price confirmed after we review your property details.';
+    }
+
+    submitBtn.disabled = !prop;
+    document.getElementById('quoteSubmitLabel').textContent = hasCustomQuote ? 'Request My Custom Quote' : 'Email Me This Quote';
+
+    const textLines = lines.map(l => `${l.label}: ${l.price === null ? 'Call for quote' : fmt(l.price)}`);
+    document.getElementById('quoteSummaryField').value = textLines.join('\n');
+    document.getElementById('quoteTotalField').value = hasCustomQuote ? 'Custom quote required' : (prop ? fmt(total) : '');
+  }
+
+  renderProperties();
+  renderAddons();
+  updateSummary();
+
+  // Service type selector — only End of Tenancy has a bed/bath calculator;
+  // the other two are custom-quoted, same pattern as the 5+ bedroom fallback.
+  const SERVICE_COPY = {
+    'post-construction': {
+      title: 'Post-Construction Cleaning',
+      text: "Every post-construction job is different — get in touch with a few details about your project and we'll come back to you with a fixed-price quote."
+    },
+    commercial: {
+      title: 'Commercial Cleaning',
+      text: "Commercial quotes are tailored to your space and schedule — get in touch with a few details and we'll come back to you with a fixed-price quote."
+    }
+  };
+
+  function setServiceType(type) {
+    document.querySelectorAll('.service-pill-btn').forEach(b => b.classList.toggle('selected', b.dataset.service === type));
+    const isEot = type === 'end-of-tenancy';
+    document.getElementById('quoteGrid').style.display = isEot ? '' : 'none';
+    const panel = document.getElementById('customQuotePanel');
+    panel.style.display = isEot ? 'none' : 'block';
+    if (!isEot) {
+      document.getElementById('customQuoteTitle').textContent = SERVICE_COPY[type].title;
+      document.getElementById('customQuoteText').textContent = SERVICE_COPY[type].text;
+    }
+  }
+
+  document.querySelectorAll('.service-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => setServiceType(btn.dataset.service));
+  });
+
+  // Capture ?ref= lead source, same pattern as the main booking forms
+  (function() {
+    const urlRef = new URLSearchParams(window.location.search).get('ref');
+    if (urlRef) { try { localStorage.setItem('kleanly_ref', urlRef); } catch (e) {} }
+    let ref = urlRef;
+    if (!ref) { try { ref = localStorage.getItem('kleanly_ref'); } catch (e) {} }
+    if (ref) { document.querySelectorAll('input[name="ref"]').forEach(i => i.value = ref); }
+  })();
+
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('quoteSubmitBtn');
+    const labelEl = document.getElementById('quoteSubmitLabel');
+    const originalLabel = labelEl.textContent;
+    btn.disabled = true;
+    labelEl.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(this)
+      });
+      const json = await res.json();
+      if (json.success) {
+        window.location.href = 'thank-you.html';
+      } else {
+        btn.disabled = false;
+        labelEl.textContent = originalLabel;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      labelEl.textContent = originalLabel;
+      alert('Something went wrong. Please try again.');
+    }
+  });
+</script>
+
 </body>
 </html>
