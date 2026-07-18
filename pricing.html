@@ -137,9 +137,29 @@
     .btn-primary:active { transform: translateY(0) scale(0.99); }
     .btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
+    /* ── QUOTE HERO ── */
+    #quote-hero { padding: 112px 32px 24px; }
+    .quote-intro { max-width: 640px; margin: 0 auto 44px; text-align: center; }
+    .quote-label {
+      font-size: 14px; font-weight: 600; color: var(--blue);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .quote-label::before, .quote-label::after { content: ''; width: 24px; height: 2px; background: var(--teal); }
+    .quote-h1 {
+      font-size: clamp(32px, 4vw, 50px); font-weight: 800; color: var(--blue-deeper);
+      letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 16px;
+    }
+    .quote-h1 em { font-style: normal; color: var(--blue); }
+    .quote-sub { font-size: 16px; color: var(--text-body); line-height: 1.7; }
+    @media (min-width: 820px) {
+      .quote-intro { max-width: 800px; }
+      .quote-sub { white-space: nowrap; }
+    }
+
     /* ── PRICING HERO ── */
     #pricing-hero {
-      padding-top: 72px;
+      padding-top: 0;
       background: transparent;
       display: grid;
       grid-template-columns: 45fr 55fr;
@@ -591,19 +611,20 @@
   </div>
 </header>
 
+<!-- QUOTE HERO -->
+<section id="quote-hero">
+  <div class="quote-intro">
+    <p class="quote-label">Services &amp; Pricing</p>
+    <h1 class="quote-h1">End of Tenancy <em>Cleaning</em>.</h1>
+    <p class="quote-sub">Your price is fixed when you book — no surprise add-ons, ever.</p>
+  </div>
+</section>
+
 <!-- PRICING HERO -->
 <section id="pricing-hero">
 
   <div class="pricing-left">
-    <p class="pricing-label">End of Tenancy Fixed Pricing · Inc. GST</p>
-    <h1 class="pricing-h1">
-      A small price for<br>
-      <em>your full deposit back.</em>
-    </h1>
-    <p class="pricing-sub">
-      Your price is fixed when you book — no surprise add-ons, ever.
-    </p>
-    <p class="pricing-sub" style="margin-top:4px;">
+    <p class="pricing-sub" style="margin-top:0;">
       Our End of Tenancy service uses the exact same rigorous approved checklist every time. Whether you're moving out to get your bond back or ensuring your property meets inspection standards, you get the absolute highest standard of clean.
     </p>
     <ul class="pricing-checklist">
