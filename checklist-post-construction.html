@@ -356,6 +356,7 @@
     }
     @media (max-width: 720px) {
       .cl-grid { grid-template-columns: 1fr; }
+      .cl-addons-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       #cl-hero { padding: 112px 20px 48px; }
@@ -396,6 +397,51 @@
       color: var(--text-muted); padding: 14px 0 2px;
     }
     .mob-nav .nav-link.sub { padding-left: 14px; font-size: 15px; }
+
+    /* ── INTRO COPY ── */
+    .cl-intro { max-width: 820px; margin: 0 0 32px; }
+    .cl-intro p { font-size: 15.5px; color: var(--text-body); line-height: 1.75; margin-bottom: 14px; }
+    .cl-intro-cta { font-weight: 600; color: var(--blue-deeper); margin-bottom: 0 !important; }
+
+    /* ── ACCORDION ── */
+    .cl-accordion { display: flex; flex-direction: column; gap: 12px; margin-bottom: 44px; }
+    .cl-acc-item {
+      background: var(--white); border: 1px solid rgba(70,113,143,0.1); border-radius: 10px;
+      overflow: hidden; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cl-acc-item:hover { border-color: rgba(149,220,207,0.4); }
+    .cl-acc-item.open { border-color: rgba(149,220,207,0.5); box-shadow: 0 4px 16px rgba(149,220,207,0.12); }
+    .cl-acc-trigger {
+      width: 100%; display: flex; align-items: center; gap: 16px;
+      padding: 20px 22px; background: none; border: none; cursor: pointer;
+      text-align: left; font-family: inherit;
+    }
+    .cl-acc-trigger:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+    .cl-acc-num {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: var(--teal-light); color: var(--blue-deeper);
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cl-acc-title-wrap { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .cl-acc-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; color: var(--blue-deeper); letter-spacing: -0.01em; }
+    .cl-acc-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    .cl-acc-chevron { flex-shrink: 0; color: var(--blue); transition: transform 0.25s ease; }
+    .cl-acc-item.open .cl-acc-chevron { transform: rotate(180deg); }
+    .cl-acc-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .cl-acc-panel-inner { padding: 0 22px 22px; }
+
+    /* ── ADD-ONS / COMPLIANCE CARDS ── */
+    .cl-addons { margin: 0 0 52px; }
+    .cl-addons-heading { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: var(--blue-deeper); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .cl-addons-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+    .cl-addons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cl-addon-card {
+      background: var(--teal-light); border: 1px solid rgba(149,220,207,0.3);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .cl-addon-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px; color: var(--blue-deeper); margin-bottom: 4px; }
+    .cl-addon-desc { font-size: 13px; color: var(--text-body); line-height: 1.55; }
   </style>
 </head>
 <body>
@@ -466,72 +512,204 @@
 <section id="cl-content">
   <div class="cl-inner">
 
-    <!-- Stage 1 — Initial Site Clean -->
-    <div class="cl-section">
-      <h2 class="cl-section-heading">Initial Site Clean</h2>
-      <div class="cl-grid">
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Remove construction debris, offcuts &amp; packaging
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Vacuum &amp; remove heavy dust build-up from all floors
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Wipe down dust from skirting boards &amp; wall edges
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Clean window tracks &amp; frames of construction dust
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Remove protective film from windows, tiles &amp; fixtures
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Sweep &amp; clear external walkways &amp; entry points
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Spot-clean paint, adhesive &amp; sealant marks
-        </div>
-      </div>
+    <!-- Intro copy -->
+    <div class="cl-intro">
+      <p>Renovations and new builds leave behind fine dust, hazardous residue, and stubborn debris. At Kleanly, we provide meticulous, multi-stage handover cleans that transform chaotic construction sites into spotless, move-in-ready spaces. Our industrial teams follow a strict checklist to guarantee your project passes final inspection seamlessly.</p>
+      <p class="cl-intro-cta">Select a section below to see our comprehensive handover inclusions:</p>
     </div>
 
-    <!-- Stage 2 — Final Detailed Clean -->
-    <div class="cl-section">
-      <h2 class="cl-section-heading">Final Detailed Clean</h2>
-      <div class="cl-grid">
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Deep clean kitchen benchtops, cabinetry &amp; splashbacks
+    <!-- Accordion -->
+    <div class="cl-accordion">
+      <div class="cl-acc-item">
+        <button class="cl-acc-trigger" aria-expanded="false">
+          <span class="cl-acc-num">1</span>
+          <span class="cl-acc-title-wrap">
+            <span class="cl-acc-title">Multi-Stage Dust Removal &amp; Air Quality</span>
+            <span class="cl-acc-desc">Construction dust settles everywhere—even inside walls and vents. We use a multi-pass approach to trap fine particles.</span>
+          </span>
+          <svg class="cl-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cl-acc-panel">
+          <div class="cl-acc-panel-inner">
+            <div class="cl-grid">
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>High-Level Dusting:</strong> Vacuuming and wiping ceiling joints, exposed beams, light tracks, and conduits.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Air Vents &amp; Diffusers:</strong> Deep vacuuming and wiping of HVAC vents, exhaust fans, and return grilles to eliminate airborne dust.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Wall &amp; Ceiling Cleaning:</strong> Wiping down walls and ceilings to remove fine gypsum, plaster, and concrete dust.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Fixtures &amp; Fittings:</strong> Detailed dusting of all light switches, power points, smoke detectors, and data ports.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Skirting &amp; Architraves:</strong> Vacuuming and damp-wiping all baseboards, door frames, and trim.
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Clean &amp; disinfect bathroom tiles, vanities &amp; fixtures
+      </div>
+
+      <div class="cl-acc-item">
+        <button class="cl-acc-trigger" aria-expanded="false">
+          <span class="cl-acc-num">2</span>
+          <span class="cl-acc-title-wrap">
+            <span class="cl-acc-title">Window, Frame &amp; Track Detail</span>
+            <span class="cl-acc-desc">Brand-new windows are often covered in stickers, plaster, and silicone. We restore them to a flawless finish.</span>
+          </span>
+          <svg class="cl-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cl-acc-panel">
+          <div class="cl-acc-panel-inner">
+            <div class="cl-grid">
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Sticker &amp; Tape Removal:</strong> Careful scraping of manufacturer labels, protective films, and masking tape residues.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Track &amp; Sill Deep Clean:</strong> Industrial vacuuming of window tracks to extract brick dust and debris, followed by a detailed wipe down.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Paint &amp; Silicone Scraping:</strong> Removing overspray, plaster splashes, grout residue, and silicone smears from glass panels and aluminum frames.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Internal &amp; External Glass:</strong> Full streak-free squeegee wash of all internal glass and accessible external windows.
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Polish all glass, mirrors &amp; window surfaces inside &amp; out
+      </div>
+
+      <div class="cl-acc-item">
+        <button class="cl-acc-trigger" aria-expanded="false">
+          <span class="cl-acc-num">3</span>
+          <span class="cl-acc-title-wrap">
+            <span class="cl-acc-title">Joinery, Cabinetry &amp; Internal Fit-Outs</span>
+            <span class="cl-acc-desc">Dust gets into every drawer glide and hinge. We clean inside and out so cabinetry is instantly usable.</span>
+          </span>
+          <svg class="cl-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cl-acc-panel">
+          <div class="cl-acc-panel-inner">
+            <div class="cl-grid">
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Internal Cabinet Wiping:</strong> Vacuuming and wiping down the inside of all newly installed cupboards, wardrobes, pantries, and vanity units.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Drawer Disassembly:</strong> Removing drawers where necessary to clean accumulated dust from the tracks and runners underneath.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Exteriors &amp; Hardware:</strong> Wiping down all cabinet faces, handles, soft-close hardware, and kickboards.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Countertops &amp; Edges:</strong> Thorough cleaning and polishing of stone, laminate, or timber surfaces, ensuring no gritty dust remains on the underside edges.
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Detail-clean all door frames, handles &amp; skirting boards
+      </div>
+
+      <div class="cl-acc-item">
+        <button class="cl-acc-trigger" aria-expanded="false">
+          <span class="cl-acc-num">4</span>
+          <span class="cl-acc-title-wrap">
+            <span class="cl-acc-title">Kitchen, Breakroom &amp; Bathroom Handover</span>
+            <span class="cl-acc-desc">We clean these high-value zones to a showroom standard, ensuring all protective coverings are removed.</span>
+          </span>
+          <svg class="cl-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cl-acc-panel">
+          <div class="cl-acc-panel-inner">
+            <div class="cl-grid">
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Sanitary Ware:</strong> Deep scrubbing and polishing of new toilets, urinals, basins, and baths—removing all trade markings and grout haze.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Tapware &amp; Chrome:</strong> Polishing all taps, shower heads, and metal trim to a mirror finish.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Wall Tiles:</strong> Washing down tiled splashbacks and walls to remove residual tile grout, film, and adhesive.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Appliance Commissioning Clean:</strong> Removing protective blue films and tape from new ovens, rangehoods, dishwashers, and fridges, followed by an internal and external wipe down.
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Wipe down light switches, power points &amp; fittings
+      </div>
+
+      <div class="cl-acc-item">
+        <button class="cl-acc-trigger" aria-expanded="false">
+          <span class="cl-acc-num">5</span>
+          <span class="cl-acc-title-wrap">
+            <span class="cl-acc-title">Advanced Floor Restoration</span>
+            <span class="cl-acc-desc">Construction traffic leaves heavy tracking. We use commercial-grade methods to prep floors for handover.</span>
+          </span>
+          <svg class="cl-acc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="cl-acc-panel">
+          <div class="cl-acc-panel-inner">
+            <div class="cl-grid">
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Debris Removal:</strong> Thorough sweep and vacuum of all floors to remove drywall screws, wood shavings, and grit.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Carpet Deep Clean:</strong> Heavy industrial vacuuming of carpeted areas (Steam cleaning/extraction available as an option).
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Hard Floor Scrubbing:</strong> Machine scrubbing or damp mopping of vinyl, concrete, or tiled floors to lift ground-in dirt and plaster footprints.
+            </div>
+            <div class="cl-item">
+              <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <strong>Polishing &amp; Buffing:</strong> Wiping down transitions, thresholds, and floor trims.
+            </div>
+            </div>
+          </div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Vacuum &amp; mop all hard floors, carpets &amp; tiled areas
+      </div>
+
+    </div>
+
+    <div class="cl-addons">
+      <h2 class="cl-addons-heading">The Kleanly Safety &amp; Compliance Guarantee</h2>
+      <p class="cl-addons-sub">Post-construction sites require strict safety adherence. The Kleanly team comes fully prepared with:</p>
+      <div class="cl-addons-grid">
+        <div class="cl-addon-card">
+          <div class="cl-addon-title">White Cards</div>
+          <div class="cl-addon-desc">General Construction Induction certification for every team member on site.</div>
         </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Clean inside cupboards, drawers &amp; built-in robes
+        <div class="cl-addon-card">
+          <div class="cl-addon-title">Full Insurance Coverage</div>
+          <div class="cl-addon-desc">Commercial liability insurance and worker's compensation for total peace of mind.</div>
+        </div>
+        <div class="cl-addon-card">
+          <div class="cl-addon-title">Site-Specific PPE</div>
+          <div class="cl-addon-desc">High-vis, steel-cap boots, hard hats, and safety glasses worn on every visit.</div>
+        </div>
+        <div class="cl-addon-card">
+          <div class="cl-addon-title">SWMS Documentation</div>
+          <div class="cl-addon-desc">Safe Work Method Statements provided upon request.</div>
         </div>
       </div>
     </div>
@@ -553,89 +731,26 @@
       </div>
     </div>
 
-    <!-- Stage 3 — Settlement &amp; Handover Clean -->
-    <div class="cl-section">
-      <h2 class="cl-section-heading">Settlement &amp; Handover Clean</h2>
-      <div class="cl-grid">
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Final dust &amp; polish of all surfaces, sills &amp; ledges
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Full wipe-down of appliances, fixtures &amp; fittings inside &amp; outside
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Final vacuum &amp; mop of all floor surfaces
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Remove any remaining labels, stickers &amp; adhesive residue
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Clean &amp; sanitise all bathrooms &amp; kitchen areas
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Final walkthrough check against handover checklist
-        </div>
-        <div class="cl-item">
-          <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Presentation-ready finish for client or agent inspection
-        </div>
-      </div>
-    </div>
-
-    <!-- Excluded Services -->
+    <!-- Exclusions & Specialized Services -->
     <div class="cl-section excluded-services">
-      <h2 class="cl-section-heading">Excluded services</h2>
-      <p class="cl-section-note">Due to WH&S, liability risks and complexity, the services below are not offered by us.</p>
+      <h2 class="cl-section-heading">Exclusions &amp; Specialized Services</h2>
+      <p class="cl-section-note">To protect your newly installed finishes, the following require specialized equipment and must be booked as specific add-ons.</p>
       <div class="cl-grid">
         <div class="cl-item-excluded">
           <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Chandeliers
+          External window cleaning above ground floor or first floor (requiring high-access poles or scissor lifts)
         </div>
         <div class="cl-item-excluded">
           <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Light Bulbs
+          External pressure washing of driveways, brickwork, or pathways
         </div>
         <div class="cl-item-excluded">
           <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Fireplaces
+          Stripping and sealing of specialized stone or vinyl floors
         </div>
         <div class="cl-item-excluded">
           <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Moving Heavy Furniture
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          AC Vents / Filters
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Grout &amp; Silicon Remediations
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Biohazards (Excessive Mould, Faeces, Blood)
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Odour Removal &amp; Remediation
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Removal of Pet Hair Embedded in Carpet Fibres
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          High-Reach Areas (Areas Not Reachable With A Small 3-Step Ladder)
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Floor Grouting
+          Disposal of heavy building waste or left-behind trade materials (wood pallets, drywall scraps, tiles)
         </div>
       </div>
     </div>
@@ -731,6 +846,23 @@
     a.addEventListener('click', () => {
       mobBtn.classList.remove('open');
       mobNav.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.cl-acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.cl-acc-item');
+      const panel = item.querySelector('.cl-acc-panel');
+      const isOpen = item.classList.contains('open');
+      if (isOpen) {
+        panel.style.maxHeight = null;
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
     });
   });
 </script>
