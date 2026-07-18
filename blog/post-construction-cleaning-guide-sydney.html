@@ -119,6 +119,38 @@
     .footer-legal a:hover { color: rgba(255,255,255,0.7); }
     @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } nav { display: none; } .mob-menu-btn { display: flex; } }
     @media (max-width: 640px) { #article { padding: 100px 20px 60px; } .article-cta { padding: 28px 20px; } .footer-grid { grid-template-columns: 1fr; } footer { padding: 48px 20px 24px; } }
+  
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+    .nav-dropdown-trigger svg { transition: transform 0.2s ease; }
+    .nav-dropdown:hover .nav-dropdown-trigger svg,
+    .nav-dropdown:focus-within .nav-dropdown-trigger svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+      background: #fff; border: 1px solid rgba(70,113,143,0.1); border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(70,113,143,0.15);
+      padding: 8px; min-width: 210px;
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(4px);
+    }
+    .nav-dropdown-menu a {
+      display: block; padding: 10px 14px; border-radius: 6px;
+      font-size: 14px; font-weight: 500; color: var(--text-body); text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: var(--base); color: var(--blue-deeper); }
+    .nav-dropdown-menu a.active { color: var(--blue-deeper); font-weight: 700; background: var(--teal-light); }
+    .mob-nav-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted); padding: 14px 0 2px;
+    }
+    .mob-nav .nav-link.sub { padding-left: 14px; font-size: 15px; }
   </style>
 </head>
 <body>
@@ -131,7 +163,15 @@
     <nav>
       <a class="nav-link" href="../index.html#why">Why Us</a>
       <a class="nav-link" href="../index.html#process">Process</a>
-      <a class="nav-link" href="../pricing.html">Pricing</a>
+      <div class="nav-dropdown">
+      <a class="nav-link nav-dropdown-trigger" href="../pricing.html">Services &amp; Pricing<svg width="9" height="9" viewBox="0 0 12 12" fill="none" style="margin-left:2px"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown-menu">
+        <a href="../pricing.html">End of Tenancy</a>
+        <a href="../commercial.html">Commercial</a>
+        <a href="../post-construction.html">Post-Construction</a>
+        <a href="../other-services.html">Other Services</a>
+      </div>
+    </div>
       <a class="nav-link" href="../checklist.html">Checklist</a>
       <a class="nav-link" href="../faq.html">FAQ</a>
       <a class="nav-link active" href="../blog.html">Blog</a>
@@ -142,7 +182,11 @@
   <div class="mob-nav" id="mobNav">
     <a class="nav-link" href="../index.html#why">Why Us</a>
     <a class="nav-link" href="../index.html#process">Process</a>
-    <a class="nav-link" href="../pricing.html">Pricing</a>
+    <div class="mob-nav-label">Services &amp; Pricing</div>
+    <a class="nav-link sub" href="../pricing.html">End of Tenancy</a>
+    <a class="nav-link sub" href="../commercial.html">Commercial</a>
+    <a class="nav-link sub" href="../post-construction.html">Post-Construction</a>
+    <a class="nav-link sub" href="../other-services.html">Other Services</a>
     <a class="nav-link" href="../checklist.html">Checklist</a>
     <a class="nav-link" href="../faq.html">FAQ</a>
     <a class="nav-link" href="../blog.html">Blog</a>
