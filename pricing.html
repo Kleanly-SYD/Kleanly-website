@@ -312,50 +312,31 @@
       font-size: 16px; color: var(--text-body); line-height: 1.65;
       margin-bottom: 48px; max-width: 520px;
     }
-    .addon-table-wrap {
-      background: #fff;
-      border: 1px solid rgba(70,113,143,0.1);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(70,113,143,0.04), 0 8px 24px rgba(70,113,143,0.07);
-      overflow: hidden;
+    .icon-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
     }
-    .addon-table { width: 100%; border-collapse: collapse; }
-    .addon-table thead th {
-      text-align: left;
-      font-size: 11px; font-weight: 600; color: var(--text-muted);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 12px 24px;
-      background: var(--base);
-      border-bottom: 1px solid rgba(70,113,143,0.1);
+    .icon-card {
+      background: #fff; border: 1px solid rgba(70,113,143,0.1); border-radius: 12px;
+      padding: 22px 18px 20px; text-align: center;
+      box-shadow: 0 1px 2px rgba(70,113,143,0.03);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+      display: flex; flex-direction: column; align-items: center;
     }
-    .addon-table thead th.addon-price-col { text-align: right; white-space: nowrap; }
-    .addon-table tbody td {
-      padding: 20px 24px;
-      border-bottom: 1px solid rgba(70,113,143,0.07);
-      vertical-align: middle;
+    .icon-card:hover { border-color: rgba(149,220,207,0.6); box-shadow: 0 6px 20px rgba(70,113,143,0.08); transform: translateY(-1px); }
+    .icon-badge {
+      width: 60px; height: 60px; border-radius: 16px; background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+      flex-shrink: 0;
     }
-    .addon-table tbody tr:last-child td { border-bottom: none; }
-    .addon-table tbody tr:hover { background: rgba(149,220,207,0.04); }
-    .addon-name {
-      display: block;
-      font-size: 15px; font-weight: 500; color: var(--blue-deeper);
-      line-height: 1.3;
+    .icon-badge svg { width: 30px; height: 30px; stroke: var(--teal-dark); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-name { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; color: var(--blue-deeper); line-height: 1.3; margin-bottom: 2px; }
+    .icon-qualifier { font-size: 11.5px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.4; min-height: 15px; }
+    .icon-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px; flex: 1; }
+    .icon-price {
+      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: var(--blue);
+      font-variant-numeric: tabular-nums; margin-top: auto;
     }
-    .addon-qualifier {
-      font-weight: 400; color: var(--text-muted); font-size: 13px;
-    }
-    .addon-desc {
-      font-size: 13px; color: var(--text-muted); line-height: 1.55;
-      margin: 3px 0 0;
-    }
-    .addon-price {
-      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600;
-      color: var(--blue-deeper); white-space: nowrap;
-      letter-spacing: -0.01em; line-height: 1;
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-    }
-    .addon-price .sep { color: var(--text-muted); font-weight: 400; margin: 0 3px; }
+    .icon-price .sep { color: var(--text-muted); font-weight: 400; margin: 0 2px; }
     .addon-footnote {
       margin-top: 28px; font-size: 13.5px; color: var(--text-muted); line-height: 1.6;
     }
@@ -366,14 +347,12 @@
       transition: color 0.2s ease, text-decoration-color 0.2s ease;
     }
     .addon-footnote a:hover { color: var(--blue); text-decoration-color: var(--blue); }
+    @media (max-width: 900px) {
+      .icon-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 640px) {
       .addons-h2 { font-size: 28px; }
-      .addon-table thead { display: none; }
-      .addon-table, .addon-table tbody, .addon-table tr, .addon-table td { display: block; width: 100%; }
-      .addon-table tbody tr { padding: 16px 20px; border-bottom: 1px solid rgba(70,113,143,0.07); }
-      .addon-table tbody tr:last-child { border-bottom: none; }
-      .addon-table tbody td { padding: 0; border-bottom: none; }
-      .addon-price { text-align: left; margin-top: 6px; }
+      .icon-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
 
     /* ── OTHER SERVICES ── */
@@ -720,94 +699,84 @@
     <p class="addons-page-label"><span>→</span> Add-ons</p>
     <h2 class="addons-h2">Common extras</h2>
     <p class="addons-sub">All add-on prices are fixed — no surprises when you book.</p>
-    <div class="addon-table-wrap">
-      <table class="addon-table">
-        <thead>
-          <tr>
-            <th>Extra</th>
-            <th class="addon-price-col">Fixed price inc. GST</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="addon-name">Carpet cleaning <span class="addon-qualifier">(per area)</span></span>
-              <p class="addon-desc">Steam clean per carpeted room or defined area.</p>
-            </td>
-            <td class="addon-price">$69</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Carpet cleaning Hallways &amp; Stairs</span>
-              <p class="addon-desc">Steam clean hallways and staircase.</p>
-            </td>
-            <td class="addon-price">$45</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Exterior windows <span class="addon-qualifier">(per window frame/set)</span></span>
-              <p class="addon-desc">Frames, sills and tracks — ground floor only.</p>
-            </td>
-            <td class="addon-price">$15</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Balcony <span class="addon-qualifier">(Small: 0–15m² / Large: 15–30m²)</span></span>
-              <p class="addon-desc">Vacuum &amp; mop floor, remove cobwebs, clean glass walls internally &amp; wipe railings.</p>
-            </td>
-            <td class="addon-price">$45<span class="sep">/</span>$85</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Garage <span class="addon-qualifier">(per car spot)</span></span>
-              <p class="addon-desc">Sweep floor, remove cobwebs, dust lighting and power points.</p>
-            </td>
-            <td class="addon-price">$34</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Spot Wall Washing</span>
-              <p class="addon-desc">Scuffs/marks around light switches and high-traffic areas.</p>
-            </td>
-            <td class="addon-price">$89</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Full wall washing <span class="addon-qualifier">(per room)</span></span>
-              <p class="addon-desc">Full wall wash, floor to ceiling.</p>
-            </td>
-            <td class="addon-price">$50</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Blinds <span class="addon-qualifier">(per set)</span></span>
-              <p class="addon-desc">Wipe down per set. Vertical plastic blinds excluded.</p>
-            </td>
-            <td class="addon-price">$33</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Outdoor Pressure Wash</span>
-              <p class="addon-desc">Deep blast of patio pavers, alfresco tiling, or driveways up to 30m².</p>
-            </td>
-            <td class="addon-price">$160</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Deck &amp; patio <span class="addon-qualifier">(Small: 0–15m² / Large: 15–30m²)</span></span>
-              <p class="addon-desc">Sweep and mop. Note: does not include pressure washing or heavy stain removal.</p>
-            </td>
-            <td class="addon-price">$45<span class="sep">/</span>$85</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="addon-name">Sliding glass doors <span class="addon-qualifier">(per extra set)</span></span>
-              <p class="addon-desc">Tracks, frames and handles. One set included in every clean.</p>
-            </td>
-            <td class="addon-price">$34</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="5" y="11" width="22" height="13" rx="1.5"/><path d="M8 15h16M8 19h16" opacity="0.5"/><path d="M23 6l1 2.2M23 6l-1.6 1.6M23 6l1.6 1.6"/></svg></div>
+        <div class="icon-name">Carpet cleaning</div>
+        <div class="icon-qualifier">(per area)</div>
+        <div class="icon-desc">Steam clean per carpeted room or defined area.</div>
+        <div class="icon-price">$69</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><path d="M6 25h5v-5h5v-5h5v-5h5"/></svg></div>
+        <div class="icon-name">Carpet Hallways &amp; Stairs</div>
+        <div class="icon-qualifier">&nbsp;</div>
+        <div class="icon-desc">Steam clean hallways and staircase.</div>
+        <div class="icon-price">$45</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="7" y="6" width="18" height="18" rx="1.5"/><path d="M16 6v18M7 15h18"/><path d="M24 4.5l1 2M24 4.5l-1.5 1.4M24 4.5l1.5 1.4"/></svg></div>
+        <div class="icon-name">Exterior windows</div>
+        <div class="icon-qualifier">(per window frame/set)</div>
+        <div class="icon-desc">Frames, sills and tracks — ground floor only.</div>
+        <div class="icon-price">$15</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><path d="M5 24h22"/><path d="M5 24V9M27 24V9M5 9h22"/><path d="M9 9v15M13 9v15M17 9v15M21 9v15" opacity="0.6"/></svg></div>
+        <div class="icon-name">Balcony</div>
+        <div class="icon-qualifier">(Small: 0–15m² / Large: 15–30m²)</div>
+        <div class="icon-desc">Vacuum &amp; mop floor, remove cobwebs, clean glass walls &amp; wipe railings.</div>
+        <div class="icon-price">$45<span class="sep">/</span>$85</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><path d="M5 26V13L16 6l11 7v13"/><path d="M5 26h22"/><path d="M8 13h16M8 17h16M8 21h16" opacity="0.5"/></svg></div>
+        <div class="icon-name">Garage</div>
+        <div class="icon-qualifier">(per car spot)</div>
+        <div class="icon-desc">Sweep floor, remove cobwebs, dust lighting and power points.</div>
+        <div class="icon-price">$34</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="5" y="6" width="22" height="20" rx="1.5"/><circle cx="19" cy="14" r="2.4" opacity="0.5"/><path d="M11 20l4 4M15 20l-4 4"/></svg></div>
+        <div class="icon-name">Spot Wall Washing</div>
+        <div class="icon-qualifier">&nbsp;</div>
+        <div class="icon-desc">Scuffs/marks around light switches and high-traffic areas.</div>
+        <div class="icon-price">$89</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="5" y="6" width="22" height="20" rx="1.5"/><path d="M9 22L23 8" stroke-width="3"/><circle cx="24" cy="7" r="1.6" fill="var(--teal-dark)" stroke="none"/></svg></div>
+        <div class="icon-name">Full wall washing</div>
+        <div class="icon-qualifier">(per room)</div>
+        <div class="icon-desc">Full wall wash, floor to ceiling.</div>
+        <div class="icon-price">$50</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="6" y="5" width="20" height="3" rx="1" fill="var(--teal-dark)" stroke="none"/><path d="M6 11h20M6 15h20M6 19h20M6 23h20" opacity="0.55"/><path d="M16 26v3"/><circle cx="16" cy="30" r="1.3" fill="var(--teal-dark)" stroke="none"/></svg></div>
+        <div class="icon-name">Blinds</div>
+        <div class="icon-qualifier">(per set)</div>
+        <div class="icon-desc">Wipe down per set. Vertical plastic blinds excluded.</div>
+        <div class="icon-price">$33</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><path d="M7 18l8-8 4 4-8 8z"/><path d="M19 14l6-6"/><path d="M22 21l2 2M25 18l2.4 1.2M20 24l1.4 2.4" opacity="0.6"/></svg></div>
+        <div class="icon-name">Outdoor Pressure Wash</div>
+        <div class="icon-qualifier">&nbsp;</div>
+        <div class="icon-desc">Deep blast of pavers, tiling, or driveways up to 30m².</div>
+        <div class="icon-price">$160</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><path d="M16 5c6 0 10 4 10 8H6c0-4 4-8 10-8z"/><path d="M16 13v9"/><path d="M10 26h12"/><path d="M12 26v-3M20 26v-3"/></svg></div>
+        <div class="icon-name">Deck &amp; patio</div>
+        <div class="icon-qualifier">(Small: 0–15m² / Large: 15–30m²)</div>
+        <div class="icon-desc">Sweep and mop. No pressure washing or stain removal.</div>
+        <div class="icon-price">$45<span class="sep">/</span>$85</div>
+      </div>
+      <div class="icon-card">
+        <div class="icon-badge"><svg viewBox="0 0 32 32"><rect x="5" y="6" width="12" height="20" rx="1"/><rect x="15" y="6" width="12" height="20" rx="1" opacity="0.55"/><path d="M20 16l3 -3M20 16l3 3"/></svg></div>
+        <div class="icon-name">Sliding glass doors</div>
+        <div class="icon-qualifier">(per extra set)</div>
+        <div class="icon-desc">Tracks, frames and handles. One set included in every clean.</div>
+        <div class="icon-price">$34</div>
+      </div>
     </div>
     <p class="addon-footnote">Not sure which add-ons you need? <a href="index.html#contact">Get a free quote →</a></p>
   </div>
