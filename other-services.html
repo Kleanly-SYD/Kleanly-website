@@ -83,7 +83,7 @@
     .logo-img { height: 48px; width: auto; object-fit: contain; }
     .logo-name { height: 52px; width: auto; object-fit: contain; }
 
-    nav { display: flex; align-items: center; gap: 32px; }
+    nav { display: flex; align-items: center; gap: 32px; height: 72px; }
 
     .mob-menu-btn {
       display: none; flex-direction: column; justify-content: center; gap: 5px;
@@ -741,7 +741,7 @@
       .quote-form-row { grid-template-columns: 1fr; }
     }
   
-    .nav-dropdown { position: relative; }
+    .nav-dropdown { position: relative; height: 100%; display: flex; align-items: center; }
     .nav-dropdown-trigger { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
     .nav-dropdown-trigger svg { transition: transform 0.2s ease; }
     .nav-dropdown:hover .nav-dropdown-trigger svg,
@@ -757,7 +757,7 @@
     }
     .nav-dropdown:hover .nav-dropdown-menu,
     .nav-dropdown:focus-within .nav-dropdown-menu {
-      opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(4px);
+      opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0);
     }
     .nav-dropdown-menu a {
       display: block; padding: 10px 14px; border-radius: 6px;
