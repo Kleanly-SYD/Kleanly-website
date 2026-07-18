@@ -138,7 +138,7 @@
     .btn-primary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
     /* ── QUOTE HERO ── */
-    #quote-hero { padding: 112px 32px 24px; }
+    #quote-hero { padding: 112px 32px 0; }
     .quote-intro { max-width: 640px; margin: 0 auto 44px; text-align: center; }
     .quote-label {
       font-size: 14px; font-weight: 600; color: var(--blue);
@@ -166,7 +166,7 @@
     }
 
     .pricing-left {
-      padding: 48px 56px 48px 32px;
+      padding: 8px 56px 48px 32px;
       display: flex; flex-direction: column; justify-content: flex-start;
       max-width: 600px; margin-left: auto;
     }
@@ -224,7 +224,7 @@
 
     /* ── PRICING TABLE ── */
     .pricing-right {
-      padding: 48px 32px 48px 48px;
+      padding: 8px 32px 48px 48px;
       display: flex; flex-direction: column; justify-content: flex-start;
       background: transparent;
     }
@@ -513,7 +513,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       #pricing-hero { grid-template-columns: 1fr; min-height: auto; }
-      .pricing-left { padding: 80px 32px 48px; max-width: 100%; }
+      .pricing-left { padding: 8px 32px 48px; max-width: 100%; }
       .pricing-right { padding: 0 32px 80px; max-width: 100%; }
       .other-services-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -521,7 +521,7 @@
       .mob-menu-btn { display: flex; }
     }
     @media (max-width: 640px) {
-      .pricing-left { padding: 60px 20px 40px; }
+      .pricing-left { padding: 8px 20px 40px; }
       .pricing-right { padding: 0 20px 60px; }
       .other-services-grid { grid-template-columns: 1fr 1fr; }
     }
