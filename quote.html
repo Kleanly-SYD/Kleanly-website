@@ -759,6 +759,12 @@
     }
     .mob-nav .nav-link.sub { padding-left: 14px; font-size: 15px; }
   </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init({ publicKey: "IhUIKm3vPCVE2F4Ba" });
+    })();
+  </script>
 </head>
 <body>
 
@@ -1279,6 +1285,18 @@
       });
       const json = await res.json();
       if (json.success) {
+        const form = this;
+        try {
+          await emailjs.send('service_vrc1p8k', 'template_v2gndgf', {
+            to_name: form.first_name.value,
+            to_email: form.email.value,
+            reply_to: form.email.value,
+            quote_summary: form.quote_summary.value,
+            estimated_total: form.estimated_total.value
+          });
+        } catch (emailErr) {
+          console.error('EmailJS customer confirmation failed:', emailErr);
+        }
         window.location.href = 'thank-you.html';
       } else {
         btn.disabled = false;
