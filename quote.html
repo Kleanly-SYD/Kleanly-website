@@ -1291,7 +1291,7 @@
             to_name: form.first_name.value,
             to_email: form.email.value,
             reply_to: form.email.value,
-            quote_summary: form.quote_summary.value,
+            quote_summary: form.quote_summary.value.split('\n').join('<br>'),
             estimated_total: form.estimated_total.value
           });
         } catch (emailErr) {
