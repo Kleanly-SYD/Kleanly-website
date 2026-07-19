@@ -191,13 +191,16 @@
     }
 
     .cl-item {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: flex-start; gap: 12px;
       padding: 13px 16px;
       background: var(--white);
       border: 1px solid rgba(70,113,143,0.1);
       border-radius: 8px;
       font-size: 14px; color: var(--text-body); line-height: 1.5;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cl-item-body {
+      display: grid; grid-template-columns: 140px 1fr; column-gap: 12px;
     }
     .cl-item:hover {
       border-color: rgba(149,220,207,0.4);
@@ -209,6 +212,7 @@
       background: rgba(149,220,207,0.18);
       border: 1.5px solid rgba(149,220,207,0.55);
       display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
     }
     .cl-check svg { display: block; }
 
@@ -322,6 +326,7 @@
       #cl-hero { padding: 96px 20px 0; }
       #cl-content { padding: 16px 20px 72px; }
       #cl-cta { padding: 72px 20px; }
+      .cl-item-body { grid-template-columns: 108px 1fr; }
       .cl-guarantee { padding: 20px; flex-direction: column; align-items: flex-start; }
       .footer-grid { grid-template-columns: 1fr; }
     }
@@ -433,23 +438,23 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>High-Level Dusting:</strong> Vacuuming and wiping ceiling joints, exposed beams, light tracks, and conduits.
+          <div class="cl-item-body"><strong>High-Level Dusting:</strong><span>Vacuuming and wiping ceiling joints, exposed beams, light tracks, and conduits.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Air Vents &amp; Diffusers:</strong> Deep vacuuming and wiping of HVAC vents, exhaust fans, and return grilles to eliminate airborne dust.
+          <div class="cl-item-body"><strong>Air Vents &amp; Diffusers:</strong><span>Deep vacuuming and wiping of HVAC vents, exhaust fans, and return grilles to eliminate airborne dust.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Wall &amp; Ceiling Cleaning:</strong> Wiping down walls and ceilings to remove fine gypsum, plaster, and concrete dust.
+          <div class="cl-item-body"><strong>Wall &amp; Ceiling Cleaning:</strong><span>Wiping down walls and ceilings to remove fine gypsum, plaster, and concrete dust.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Fixtures &amp; Fittings:</strong> Detailed dusting of all light switches, power points, smoke detectors, and data ports.
+          <div class="cl-item-body"><strong>Fixtures &amp; Fittings:</strong><span>Detailed dusting of all light switches, power points, smoke detectors, and data ports.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Skirting &amp; Architraves:</strong> Vacuuming and damp-wiping all baseboards, door frames, and trim.
+          <div class="cl-item-body"><strong>Skirting &amp; Architraves:</strong><span>Vacuuming and damp-wiping all baseboards, door frames, and trim.</span></div>
         </div>
       </div>
     </div>
@@ -460,19 +465,19 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Sticker &amp; Tape Removal:</strong> Careful scraping of manufacturer labels, protective films, and masking tape residues.
+          <div class="cl-item-body"><strong>Sticker &amp; Tape Removal:</strong><span>Careful scraping of manufacturer labels, protective films, and masking tape residues.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Track &amp; Sill Deep Clean:</strong> Industrial vacuuming of window tracks to extract brick dust and debris, followed by a detailed wipe down.
+          <div class="cl-item-body"><strong>Track &amp; Sill Deep Clean:</strong><span>Industrial vacuuming of window tracks to extract brick dust and debris, followed by a detailed wipe down.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Paint &amp; Silicone Scraping:</strong> Removing overspray, plaster splashes, grout residue, and silicone smears from glass panels and aluminum frames.
+          <div class="cl-item-body"><strong>Paint &amp; Silicone Scraping:</strong><span>Removing overspray, plaster splashes, grout residue, and silicone smears from glass panels and aluminum frames.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Internal &amp; External Glass:</strong> Full streak-free squeegee wash of all internal glass and accessible external windows.
+          <div class="cl-item-body"><strong>Internal &amp; External Glass:</strong><span>Full streak-free squeegee wash of all internal glass and accessible external windows.</span></div>
         </div>
       </div>
     </div>
@@ -483,19 +488,19 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Internal Cabinet Wiping:</strong> Vacuuming and wiping down the inside of all newly installed cupboards, wardrobes, pantries, and vanity units.
+          <div class="cl-item-body"><strong>Internal Cabinet Wiping:</strong><span>Vacuuming and wiping down the inside of all newly installed cupboards, wardrobes, pantries, and vanity units.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Drawer Disassembly:</strong> Removing drawers where necessary to clean accumulated dust from the tracks and runners underneath.
+          <div class="cl-item-body"><strong>Drawer Disassembly:</strong><span>Removing drawers where necessary to clean accumulated dust from the tracks and runners underneath.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Exteriors &amp; Hardware:</strong> Wiping down all cabinet faces, handles, soft-close hardware, and kickboards.
+          <div class="cl-item-body"><strong>Exteriors &amp; Hardware:</strong><span>Wiping down all cabinet faces, handles, soft-close hardware, and kickboards.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Countertops &amp; Edges:</strong> Thorough cleaning and polishing of stone, laminate, or timber surfaces, ensuring no gritty dust remains on the underside edges.
+          <div class="cl-item-body"><strong>Countertops &amp; Edges:</strong><span>Thorough cleaning and polishing of stone, laminate, or timber surfaces, ensuring no gritty dust remains on the underside edges.</span></div>
         </div>
       </div>
     </div>
@@ -523,19 +528,19 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Sanitary Ware:</strong> Deep scrubbing and polishing of new toilets, urinals, basins, and baths—removing all trade markings and grout haze.
+          <div class="cl-item-body"><strong>Sanitary Ware:</strong><span>Deep scrubbing and polishing of new toilets, urinals, basins, and baths—removing all trade markings and grout haze.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Tapware &amp; Chrome:</strong> Polishing all taps, shower heads, and metal trim to a mirror finish.
+          <div class="cl-item-body"><strong>Tapware &amp; Chrome:</strong><span>Polishing all taps, shower heads, and metal trim to a mirror finish.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Wall Tiles:</strong> Washing down tiled splashbacks and walls to remove residual tile grout, film, and adhesive.
+          <div class="cl-item-body"><strong>Wall Tiles:</strong><span>Washing down tiled splashbacks and walls to remove residual tile grout, film, and adhesive.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Appliance Commissioning Clean:</strong> Removing protective blue films and tape from new ovens, rangehoods, dishwashers, and fridges, followed by an internal and external wipe down.
+          <div class="cl-item-body"><strong>Appliance Commissioning Clean:</strong><span>Removing protective blue films and tape from new ovens, rangehoods, dishwashers, and fridges, followed by an internal and external wipe down.</span></div>
         </div>
       </div>
     </div>
@@ -546,19 +551,19 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Debris Removal:</strong> Thorough sweep and vacuum of all floors to remove drywall screws, wood shavings, and grit.
+          <div class="cl-item-body"><strong>Debris Removal:</strong><span>Thorough sweep and vacuum of all floors to remove drywall screws, wood shavings, and grit.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Carpet Deep Clean:</strong> Heavy industrial vacuuming of carpeted areas (Steam cleaning/extraction available as an option).
+          <div class="cl-item-body"><strong>Carpet Deep Clean:</strong><span>Heavy industrial vacuuming of carpeted areas (Steam cleaning/extraction available as an option).</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Hard Floor Scrubbing:</strong> Machine scrubbing or damp mopping of vinyl, concrete, or tiled floors to lift ground-in dirt and plaster footprints.
+          <div class="cl-item-body"><strong>Hard Floor Scrubbing:</strong><span>Machine scrubbing or damp mopping of vinyl, concrete, or tiled floors to lift ground-in dirt and plaster footprints.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Polishing &amp; Buffing:</strong> Wiping down transitions, thresholds, and floor trims.
+          <div class="cl-item-body"><strong>Polishing &amp; Buffing:</strong><span>Wiping down transitions, thresholds, and floor trims.</span></div>
         </div>
       </div>
     </div>

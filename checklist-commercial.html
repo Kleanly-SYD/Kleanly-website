@@ -191,13 +191,16 @@
     }
 
     .cl-item {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: flex-start; gap: 12px;
       padding: 13px 16px;
       background: var(--white);
       border: 1px solid rgba(70,113,143,0.1);
       border-radius: 8px;
       font-size: 14px; color: var(--text-body); line-height: 1.5;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cl-item-body {
+      display: grid; grid-template-columns: 140px 1fr; column-gap: 12px;
     }
     .cl-item:hover {
       border-color: rgba(149,220,207,0.4);
@@ -209,6 +212,7 @@
       background: rgba(149,220,207,0.18);
       border: 1.5px solid rgba(149,220,207,0.55);
       display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
     }
     .cl-check svg { display: block; }
 
@@ -322,6 +326,7 @@
       #cl-hero { padding: 96px 20px 0; }
       #cl-content { padding: 16px 20px 72px; }
       #cl-cta { padding: 72px 20px; }
+      .cl-item-body { grid-template-columns: 108px 1fr; }
       .cl-guarantee { padding: 20px; flex-direction: column; align-items: flex-start; }
       .footer-grid { grid-template-columns: 1fr; }
     }
@@ -433,31 +438,31 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Dusting &amp; Wiping:</strong> All desks, meeting tables, shelves, and hard surfaces wiped down.
+          <div class="cl-item-body"><strong>Dusting &amp; Wiping:</strong><span>All desks, meeting tables, shelves, and hard surfaces wiped down.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>High-Touch Disinfection:</strong> Telephones, keyboards, computer mice, monitors, and light switches sanitised.
+          <div class="cl-item-body"><strong>High-Touch Disinfection:</strong><span>Telephones, keyboards, computer mice, monitors, and light switches sanitised.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Chairs &amp; Furniture:</strong> Office chairs wiped down (leather/plastic) or vacuumed (fabric surfaces).
+          <div class="cl-item-body"><strong>Chairs &amp; Furniture:</strong><span>Office chairs wiped down (leather/plastic) or vacuumed (fabric surfaces).</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Glass &amp; Partition Wiping:</strong> Smudge and fingerprint removal from internal glass panels, glass doors, and mirrors.
+          <div class="cl-item-body"><strong>Glass &amp; Partition Wiping:</strong><span>Smudge and fingerprint removal from internal glass panels, glass doors, and mirrors.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Waste Management:</strong> Emptying all desk rubbish and recycling bins, replacing liners, and disposing of waste to your designated on-site skip or bins.
+          <div class="cl-item-body"><strong>Waste Management:</strong><span>Emptying all desk rubbish and recycling bins, replacing liners, and disposing of waste to your designated on-site skip or bins.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Flooring Maintenance:</strong> Thorough vacuuming of all carpeted areas and damp mopping of hard floors.
+          <div class="cl-item-body"><strong>Flooring Maintenance:</strong><span>Thorough vacuuming of all carpeted areas and damp mopping of hard floors.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>High-Level Dusting:</strong> Removal of dust and cobwebs from air vents, ceiling fans, light fixtures, and skirting boards.
+          <div class="cl-item-body"><strong>High-Level Dusting:</strong><span>Removal of dust and cobwebs from air vents, ceiling fans, light fixtures, and skirting boards.</span></div>
         </div>
       </div>
     </div>
@@ -468,31 +473,31 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Surfaces &amp; Countertops:</strong> Thoroughly scrubbed, wiped down, and sanitised with food-safe products.
+          <div class="cl-item-body"><strong>Surfaces &amp; Countertops:</strong><span>Thoroughly scrubbed, wiped down, and sanitised with food-safe products.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Sinks &amp; Taps:</strong> Cleaned, descaled, and polished.
+          <div class="cl-item-body"><strong>Sinks &amp; Taps:</strong><span>Cleaned, descaled, and polished.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Appliance Exteriors:</strong> Wiping down the exterior faces of refrigerators, microwaves, dishwashers, and kettles.
+          <div class="cl-item-body"><strong>Appliance Exteriors:</strong><span>Wiping down the exterior faces of refrigerators, microwaves, dishwashers, and kettles.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Splashbacks &amp; Tiles:</strong> Wiped clean of grease, oil, and food splashes.
+          <div class="cl-item-body"><strong>Splashbacks &amp; Tiles:</strong><span>Wiped clean of grease, oil, and food splashes.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Cupboards:</strong> Wiping down exterior cabinet doors and handles to remove grime.
+          <div class="cl-item-body"><strong>Cupboards:</strong><span>Wiping down exterior cabinet doors and handles to remove grime.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Floors:</strong> Sweeping and hot-mopping with commercial-grade disinfectant.
+          <div class="cl-item-body"><strong>Floors:</strong><span>Sweeping and hot-mopping with commercial-grade disinfectant.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Restocking:</strong> Refilling paper towels, hand soap, and dishwashing liquid (supplies provided by client, or managed by Kleanly by prior arrangement).
+          <div class="cl-item-body"><strong>Restocking:</strong><span>Refilling paper towels, hand soap, and dishwashing liquid (supplies provided by client, or managed by Kleanly by prior arrangement).</span></div>
         </div>
       </div>
     </div>
@@ -520,31 +525,31 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Toilets &amp; Urinals:</strong> Thoroughly scrubbed, disinfected, and sanitised inside and out (including bases and pipes).
+          <div class="cl-item-body"><strong>Toilets &amp; Urinals:</strong><span>Thoroughly scrubbed, disinfected, and sanitised inside and out (including bases and pipes).</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Sinks &amp; Vanities:</strong> Wiped clean, disinfected, and polished.
+          <div class="cl-item-body"><strong>Sinks &amp; Vanities:</strong><span>Wiped clean, disinfected, and polished.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Mirrors:</strong> Cleaned with streak-free glass cleaner.
+          <div class="cl-item-body"><strong>Mirrors:</strong><span>Cleaned with streak-free glass cleaner.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Showers &amp; Change Rooms:</strong> Tiles, screens, and fixtures cleaned and sanitised (where applicable).
+          <div class="cl-item-body"><strong>Showers &amp; Change Rooms:</strong><span>Tiles, screens, and fixtures cleaned and sanitised (where applicable).</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>High-Touch Zones:</strong> Door handles, flush buttons, and hand dryers sanitised.
+          <div class="cl-item-body"><strong>High-Touch Zones:</strong><span>Door handles, flush buttons, and hand dryers sanitised.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Floors:</strong> Sweeping, mopping, and heavy disinfecting of tile surfaces.
+          <div class="cl-item-body"><strong>Floors:</strong><span>Sweeping, mopping, and heavy disinfecting of tile surfaces.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Restocking:</strong> Replenishing toilet paper, hand towels, and soap dispensers.
+          <div class="cl-item-body"><strong>Restocking:</strong><span>Replenishing toilet paper, hand towels, and soap dispensers.</span></div>
         </div>
       </div>
     </div>
@@ -555,23 +560,23 @@
       <div class="cl-grid">
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Reception Desks:</strong> Dusted, wiped, and sanitised.
+          <div class="cl-item-body"><strong>Reception Desks:</strong><span>Dusted, wiped, and sanitised.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Seating Areas:</strong> Couches, armchairs, and waiting room seats arranged, dusted, or vacuumed.
+          <div class="cl-item-body"><strong>Seating Areas:</strong><span>Couches, armchairs, and waiting room seats arranged, dusted, or vacuumed.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Glass Entry Doors:</strong> Cleaned inside and out to remove fingerprints and smudges.
+          <div class="cl-item-body"><strong>Glass Entry Doors:</strong><span>Cleaned inside and out to remove fingerprints and smudges.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Magazine Racks &amp; Displays:</strong> Dusted and neatly organised.
+          <div class="cl-item-body"><strong>Magazine Racks &amp; Displays:</strong><span>Dusted and neatly organised.</span></div>
         </div>
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <strong>Hard Floors:</strong> Swept and mopped to a high-shine finish.
+          <div class="cl-item-body"><strong>Hard Floors:</strong><span>Swept and mopped to a high-shine finish.</span></div>
         </div>
       </div>
     </div>
