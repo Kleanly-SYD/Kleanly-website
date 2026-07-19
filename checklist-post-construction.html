@@ -178,8 +178,6 @@
     .cl-inner { max-width: 1100px; margin: 0 auto; }
 
     .cl-section { margin-bottom: 52px; }
-    
-    .cl-section.excluded-services { margin-top: 52px; }
 
     .cl-section-heading {
       font-size: clamp(22px, 2.8vw, 32px); font-weight: 700;
@@ -220,34 +218,6 @@
       border-color: rgba(70,113,143,0.2);
     }
     .cl-item.on-req .cl-check svg path { stroke: var(--blue); }
-
-    /* Excluded items */
-    .cl-item-excluded {
-      display: flex; align-items: center; gap: 12px;
-      padding: 13px 16px;
-      background: rgba(107,114,128,0.04);
-      border: 1px solid rgba(107,114,128,0.12);
-      border-radius: 8px;
-      font-size: 14px; color: var(--text-muted); line-height: 1.5;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .cl-item-excluded:hover {
-      border-color: rgba(107,114,128,0.25);
-      box-shadow: 0 2px 8px rgba(107,114,128,0.08);
-    }
-    .cl-excluded-icon {
-      width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0;
-      background: rgba(107,114,128,0.1);
-      border: 1.5px solid rgba(107,114,128,0.3);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cl-excluded-icon svg { display: block; }
-
-    /* Section note */
-    .cl-section-note {
-      font-size: 13px; color: var(--text-muted); margin-top: 32px; font-style: italic;
-      border-top: none;
-    }
 
     /* ── GUARANTEE BANNER ── */
     .cl-guarantee {
@@ -589,30 +559,6 @@
         <div class="cl-item">
           <span class="cl-check"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#72c9b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <strong>Polishing &amp; Buffing:</strong> Wiping down transitions, thresholds, and floor trims.
-        </div>
-      </div>
-    </div>
-
-    <!-- Exclusions & Specialized Services -->
-    <div class="cl-section excluded-services">
-      <h2 class="cl-section-heading">Exclusions &amp; Specialized Services</h2>
-      <p class="cl-section-note">To protect your newly installed finishes, the following require specialized equipment and must be booked as specific add-ons.</p>
-      <div class="cl-grid">
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          External window cleaning above ground floor or first floor (requiring high-access poles or scissor lifts)
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          External pressure washing of driveways, brickwork, or pathways
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Stripping and sealing of specialized stone or vinyl floors
-        </div>
-        <div class="cl-item-excluded">
-          <span class="cl-excluded-icon"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Disposal of heavy building waste or left-behind trade materials (wood pallets, drywall scraps, tiles)
         </div>
       </div>
     </div>
