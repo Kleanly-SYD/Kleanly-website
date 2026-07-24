@@ -932,6 +932,29 @@
             <option value="other">Other</option>
           </select>
         </div>
+        <div id="commercialFields" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Frequency</label>
+              <select class="form-select" name="frequency">
+                <option value="Weekly">Weekly</option>
+                <option value="Fortnightly">Fortnightly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="One-off">One-off</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Space Type</label>
+              <select class="form-select" name="space_type">
+                <option value="Office">Office</option>
+                <option value="Retail Boutique">Retail Boutique</option>
+                <option value="Clinic / Wellness">Clinic / Wellness</option>
+                <option value="Creative Studio">Creative Studio</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label class="form-label">About Your Property</label>
           <textarea class="form-textarea" name="message" placeholder="Property size, location, any specific requirements…"></textarea>
@@ -1256,6 +1279,7 @@
       document.getElementById('customQuoteText').textContent = SERVICE_COPY[type].text;
       document.getElementById('customServiceType').value = type;
     }
+    document.getElementById('commercialFields').style.display = type === 'commercial' ? 'block' : 'none';
   }
 
   document.querySelectorAll('.service-pill-btn').forEach(btn => {
